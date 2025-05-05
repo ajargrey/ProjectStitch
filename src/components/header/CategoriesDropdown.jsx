@@ -3,7 +3,7 @@ import { categorySystem } from '../../data/categories'
 
 const CategoriesDropdown = () => {
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[780px] bg-gray-800 rounded-md shadow-lg z-20 grid grid-cols-3 gap-6 p-6 animate-fade-in">
+    <div className="absolute top-full left-0 mt-2 w-[780px] bg-gray-800 rounded-md shadow-lg z-20 grid grid-cols-3 gap-6 p-6 animate-fade-in">
       <div>
         <h3 className="text-primary-400 font-heading font-semibold mb-3 text-base">SPECIAL SECTIONS</h3>
         <ul className="space-y-2">

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const SupportPage = () => {
   useEffect(() => {
     // Set document title when component mounts
-    document.title = 'Support - StitchHunt'
+    document.title = 'Support - Stitch'
   }, [])
   
   const [activeCategory, setActiveCategory] = useState('general')

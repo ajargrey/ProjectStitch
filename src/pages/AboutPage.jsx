@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 const AboutPage = () => {
   useEffect(() => {
     // Set document title when component mounts
-    document.title = 'About StitchHunt'
+    document.title = 'About - Stitch'
   }, [])
   
   return (

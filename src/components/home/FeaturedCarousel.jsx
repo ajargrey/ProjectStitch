@@ -52,10 +52,10 @@ const FeaturedCarousel = ({ games }) => {
   return (
     <div className="w-full aspect-[2.5/1] relative bg-gray-900">
       <div className="absolute inset-0 flex justify-center">
-        <div className="w-[1400px] h-full relative flex items-center justify-center">
+        <div className="w-[900px] h-full relative flex items-center">
           {/* Navigation Buttons */}
           <button 
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/90 rounded-full text-white transition-all duration-200"
+            className="absolute -left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/90 rounded-full text-white transition-all duration-200"
             onClick={() => handleManualNav('prev')}
             aria-label="Previous slide"
           >
@@ -63,7 +63,7 @@ const FeaturedCarousel = ({ games }) => {
           </button>
 
           <button 
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/90 rounded-full text-white transition-all duration-200"
+            className="absolute -right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/90 rounded-full text-white transition-all duration-200"
             onClick={() => handleManualNav('next')}
             aria-label="Next slide"
           >
@@ -72,12 +72,12 @@ const FeaturedCarousel = ({ games }) => {
 
           {/* Game Container */}
           <div 
-            className="w-[940px] h-[380px] bg-gray-600/90 rounded-lg overflow-hidden flex"
+            className="w-full h-[360px] bg-gray-600/90 rounded-lg overflow-hidden flex"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             {/* Main Image */}
-            <div className="w-[616px] h-[380px] relative">
+            <div className="w-[590px] h-[360px] relative">
               <img 
                 src={currentGame.media.banner}
                 alt={currentGame.title}
@@ -99,7 +99,7 @@ const FeaturedCarousel = ({ games }) => {
                     key={idx} 
                     src={screenshot} 
                     alt={`${currentGame.title} screenshot ${idx + 1}`}
-                    className={`w-[146px] h-[82px] object-cover rounded ${
+                    className={`w-[132px] h-[74px] object-cover rounded ${
                       isGif(screenshot) ? 'gif-pause hover:gif-play' : ''
                     }`}
                   />

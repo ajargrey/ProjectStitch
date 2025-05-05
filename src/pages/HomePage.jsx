@@ -6,7 +6,7 @@ import { gameCollection } from '../data/games'
 const HomePage = () => {
   useEffect(() => {
     // Set document title when component mounts
-    document.title = 'StitchHunt - Discover Indie Games'
+    document.title = 'Stitch - Discover Indie Games'
   }, [])
 
   return (
