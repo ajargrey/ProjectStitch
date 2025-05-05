@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-dark-300 to-dark-200 min-h-screen text-gray-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl font-semibold;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply px-4 py-2 uppercase font-medium text-gray-300 hover:text-white transition-colors;
+  }
+
+  .nav-link-active {
+    @apply text-white;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 ease-in-out;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-white;
+  }
+
+  .search-result-item {
+    @apply p-2 hover:bg-gray-700/50 rounded transition-colors duration-150 flex items-center gap-3 cursor-pointer;
+  }
+
+  .tag-badge {
+    @apply bg-gray-700 px-2 py-1 rounded-md text-xs font-medium text-gray-300 hover:bg-gray-600 transition-colors cursor-pointer;
+  }
+
+  .platform-icon {
+    @apply h-4 w-4 text-gray-400;
+  }
+
+  .swiper-pagination-bullet {
+    @apply bg-gray-400 opacity-60;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply bg-primary-500 opacity-100;
+  }
+
+  .gif-pause {
+    animation-play-state: paused !important;
+  }
+
+  .gif-play {
+    animation-play-state: running !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}

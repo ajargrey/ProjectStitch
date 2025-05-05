@@ -1,0 +1,353 @@
+{
+  "games": [
+    {
+      "id": "game1",
+      "title": "The Boba Teashop (Demo)",
+      "publishDate": "2025-02-14T00:00:00.000Z",
+      "lastUpdate": "2025-05-01T00:00:00.000Z",
+      "reviews": {
+        "count": 133,
+        "score": 4.7
+      },
+      "tags": ["Atmospheric", "First-Person", "Horror", "Psychological Horror"],
+      "pricing": {
+        "basePrice": 0,
+        "discountPercentage": 0,
+        "currentPrice": 0
+      },
+      "media": {
+        "thumbnail": "https://img.itch.zone/aW1nLzE5OTQ0NjU3LmdpZg==/original/1tXiLW.gif",
+        "banner": "https://img.itch.zone/aW1nLzE5OTQ0NjU3LmdpZg==/original/1tXiLW.gif",
+        "screenshots": [
+          "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNy5wbmc=/347x500/niUT40.png",
+          "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNi5wbmc=/347x500/Gj8bAB.png",
+          "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNS5wbmc=/347x500/Fm5do9.png",
+          "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNC5wbmc=/347x500/OOGXQE.png",
+          "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwMy5wbmc=/347x500/RKc7qm.png"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "mac"],
+      "features": ["Open world exploration", "Character customization", "Immersive story", "Multiple endings"]
+    },
+    {
+      "id": "game2",
+      "title": "Mythic Legends",
+      "publishDate": "2025-04-15T00:00:00.000Z",
+      "lastUpdate": "2025-04-15T00:00:00.000Z",
+      "reviews": {
+        "count": 8214,
+        "score": 92
+      },
+      "tags": ["fantasy", "rpg", "action", "open-world", "multiplayer"],
+      "pricing": {
+        "basePrice": 49.99,
+        "discountPercentage": 0,
+        "currentPrice": 49.99
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/5696555/pexels-photo-5696555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/3747139/pexels-photo-3747139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/7267852/pexels-photo-7267852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/7680006/pexels-photo-7680006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/5428283/pexels-photo-5428283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/5428288/pexels-photo-5428288.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "linux"],
+      "features": ["Massive multiplayer world", "Epic boss battles", "Crafting system", "Guild system"]
+    },
+    {
+      "id": "game3",
+      "title": "Quantum Breach",
+      "publishDate": "2025-04-05T00:00:00.000Z",
+      "lastUpdate": "2025-04-05T00:00:00.000Z",
+      "reviews": {
+        "count": 3187,
+        "score": 85
+      },
+      "tags": ["puzzle", "sci-fi", "first-person", "story-rich", "singleplayer"],
+      "pricing": {
+        "basePrice": 29.99,
+        "discountPercentage": 15,
+        "currentPrice": 25.49
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/6330644/pexels-photo-6330644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/7312927/pexels-photo-7312927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/8294606/pexels-photo-8294606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "mac", "linux"],
+      "features": ["Mind-bending puzzles", "Immersive environment", "Physics manipulation", "Narrative experience"]
+    },
+    {
+      "id": "game4",
+      "title": "Twilight Survivors",
+      "publishDate": "2025-03-20T00:00:00.000Z",
+      "lastUpdate": "2025-03-20T00:00:00.000Z",
+      "reviews": {
+        "count": 5921,
+        "score": 79
+      },
+      "tags": ["horror", "survival", "zombies", "co-op", "open-world", "multiplayer"],
+      "pricing": {
+        "basePrice": 39.99,
+        "discountPercentage": 0,
+        "currentPrice": 39.99
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/1535162/pexels-photo-1535162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/3480793/pexels-photo-3480793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/1535162/pexels-photo-1535162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/6898854/pexels-photo-6898854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows"],
+      "features": ["Crafting", "Base building", "Zombie hordes", "Day-night cycle"]
+    },
+    {
+      "id": "game5",
+      "title": "Pixelverse",
+      "publishDate": "2025-03-10T00:00:00.000Z",
+      "lastUpdate": "2025-03-10T00:00:00.000Z",
+      "reviews": {
+        "count": 7432,
+        "score": 94
+      },
+      "tags": ["sandbox", "building", "crafting", "multiplayer", "procedural", "adventure"],
+      "pricing": {
+        "basePrice": 24.99,
+        "discountPercentage": 0,
+        "currentPrice": 24.99
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/1608117/pexels-photo-1608117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "mac", "linux"],
+      "features": ["Infinite worlds", "Multiplayer servers", "Modding support", "Regular updates"]
+    },
+    {
+      "id": "game6",
+      "title": "Racing Thunder",
+      "publishDate": "2025-02-28T00:00:00.000Z",
+      "lastUpdate": "2025-02-28T00:00:00.000Z",
+      "reviews": {
+        "count": 2891,
+        "score": 81
+      },
+      "tags": ["racing", "sports", "multiplayer", "competitive", "simulation"],
+      "pricing": {
+        "basePrice": 44.99,
+        "discountPercentage": 10,
+        "currentPrice": 40.49
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/2127015/pexels-photo-2127015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/12801036/pexels-photo-12801036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/2127015/pexels-photo-2127015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/12801036/pexels-photo-12801036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows"],
+      "features": ["Realistic physics", "Vehicle customization", "Global leaderboards", "Seasonal events"]
+    },
+    {
+      "id": "game7",
+      "title": "Frontier Odyssey",
+      "publishDate": "2025-02-15T00:00:00.000Z",
+      "lastUpdate": "2025-02-15T00:00:00.000Z",
+      "reviews": {
+        "count": 6123,
+        "score": 87
+      },
+      "tags": ["space", "exploration", "adventure", "sci-fi", "open-world", "singleplayer"],
+      "pricing": {
+        "basePrice": 34.99,
+        "discountPercentage": 0,
+        "currentPrice": 34.99
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/5282269/pexels-photo-5282269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "mac"],
+      "features": ["Procedural universe", "Ship customization", "Trading", "Alien species"]
+    },
+    {
+      "id": "game8",
+      "title": "Shadow Tactics",
+      "publishDate": "2025-02-05T00:00:00.000Z",
+      "lastUpdate": "2025-02-05T00:00:00.000Z",
+      "reviews": {
+        "count": 4521,
+        "score": 89
+      },
+      "tags": ["strategy", "stealth", "turn-based", "tactical", "singleplayer"],
+      "pricing": {
+        "basePrice": 29.99,
+        "discountPercentage": 25,
+        "currentPrice": 22.49
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/96381/pexels-photo-96381.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/96381/pexels-photo-96381.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/1112186/pexels-photo-1112186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "linux"],
+      "features": ["Tactical combat", "Unique character abilities", "Mission-based campaign", "Challenge modes"]
+    },
+    {
+      "id": "game9",
+      "title": "Crystal Kingdoms",
+      "publishDate": "2025-01-25T00:00:00.000Z",
+      "lastUpdate": "2025-01-25T00:00:00.000Z",
+      "reviews": {
+        "count": 3864,
+        "score": 83
+      },
+      "tags": ["rpg", "fantasy", "adventure", "open-world", "magic", "singleplayer"],
+      "pricing": {
+        "basePrice": 39.99,
+        "discountPercentage": 0,
+        "currentPrice": 39.99
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/1429567/pexels-photo-1429567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/3214944/pexels-photo-3214944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/1429567/pexels-photo-1429567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/3214944/pexels-photo-3214944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/4094261/pexels-photo-4094261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/4666754/pexels-photo-4666754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "mac"],
+      "features": ["Magic system", "Quest-driven storyline", "Dynamic world", "Epic boss battles"]
+    },
+    {
+      "id": "game10",
+      "title": "Urban Brawlers",
+      "publishDate": "2025-01-15T00:00:00.000Z",
+      "lastUpdate": "2025-01-15T00:00:00.000Z",
+      "reviews": {
+        "count": 5218,
+        "score": 76
+      },
+      "tags": ["fighting", "action", "competitive", "multiplayer", "esports"],
+      "pricing": {
+        "basePrice": 19.99,
+        "discountPercentage": 0,
+        "currentPrice": 19.99
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/687811/pexels-photo-687811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/4348093/pexels-photo-4348093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/687811/pexels-photo-687811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/4348093/pexels-photo-4348093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/4348194/pexels-photo-4348194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/4197491/pexels-photo-4197491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows"],
+      "features": ["Multiple fighting styles", "Tournament mode", "Character customization", "Cross-platform play"]
+    },
+    {
+      "id": "game11",
+      "title": "Echo Valley",
+      "publishDate": "2025-01-05T00:00:00.000Z",
+      "lastUpdate": "2025-01-05T00:00:00.000Z",
+      "reviews": {
+        "count": 2947,
+        "score": 90
+      },
+      "tags": ["simulation", "farming", "life-sim", "relaxing", "building", "singleplayer"],
+      "pricing": {
+        "basePrice": 24.99,
+        "discountPercentage": 10,
+        "currentPrice": 22.49
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-pasture-blue-158179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/248195/pexels-photo-248195.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-pasture-blue-158179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/248195/pexels-photo-248195.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/2816903/pexels-photo-2816903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "mac", "linux"],
+      "features": ["Farming", "Animal husbandry", "Town relationships", "Seasonal events"]
+    },
+    {
+      "id": "game12",
+      "title": "Dungeon Delvers",
+      "publishDate": "2024-12-20T00:00:00.000Z",
+      "lastUpdate": "2024-12-20T00:00:00.000Z",
+      "reviews": {
+        "count": 4178,
+        "score": 85
+      },
+      "tags": ["roguelike", "dungeon-crawler", "rpg", "action", "procedural", "co-op"],
+      "pricing": {
+        "basePrice": 0,
+        "discountPercentage": 0,
+        "currentPrice": 0
+      },
+      "media": {
+        "thumbnail": "https://images.pexels.com/photos/164862/pexels-photo-164862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/6280443/pexels-photo-6280443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "screenshots": [
+          "https://images.pexels.com/photos/164862/pexels-photo-164862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/6280443/pexels-photo-6280443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/2115367/pexels-photo-2115367.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/3401402/pexels-photo-3401402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        ],
+        "videos": ["video1.mp4", "video2.mp4"]
+      },
+      "platforms": ["windows", "mac", "linux"],
+      "features": ["Procedural dungeons", "Character classes", "Loot system", "Cooperative play"]
+    }
+  ]
+}
