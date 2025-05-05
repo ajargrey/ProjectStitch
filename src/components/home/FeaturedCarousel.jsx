@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { FaWindows, FaApple, FaLinux, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
-const FeaturedCarousel = ({ games }) => {
+const FeaturedCarousel = ({ games, onGameSelect }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const intervalRef = useRef(null)
@@ -46,8 +46,11 @@ const FeaturedCarousel = ({ games }) => {
     }
   }, [isPaused])
 
+  useEffect(() => {
+    onGameSelect(games[currentIndex])
+  }, [currentIndex, games, onGameSelect])
+
   const currentGame = games[currentIndex]
-  const isGif = (url) => url.toLowerCase().endsWith('.gif')
 
   return (
     <div className="w-full aspect-[2.5/1] relative bg-gray-900">
@@ -75,72 +78,46 @@ const FeaturedCarousel = ({ games }) => {
 
             {/* Game Container */}
             <div 
-              className="w-full h-[432px] bg-gray-600/90 rounded-lg overflow-hidden flex"
-              onMouseEnter={() => setIsPaused(true)}
+              className="w-full h-[432px] bg-gray-800 rounded-lg overflow-hidden group relative"
+              onMouseEnter={() => {
+                setIsPaused(true)
+                onGameSelect(currentGame)
+              }}
               onMouseLeave={() => setIsPaused(false)}
             >
               {/* Main Image */}
-              <div className="w-[602px] h-[432px] relative">
-                <img 
-                  src={currentGame.media.banner}
-                  alt={currentGame.title}
-                  className={`w-full h-full object-cover ${
-                    isGif(currentGame.media.banner) ? 'gif-pause hover:gif-play' : ''
-                  }`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/60 to-transparent" />
-              </div>
+              <img 
+                src={currentGame.media.banner}
+                alt={currentGame.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
 
-              {/* Content Wrapper */}
-              <div className="flex-1 p-6 flex flex-col bg-gray-500/95">
-                <h2 className="text-2xl font-heading font-bold mb-4">{currentGame.title}</h2>
-
-                {/* Media Grid */}
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  {currentGame.media.screenshots.slice(0, 4).map((screenshot, idx) => (
-                    <img 
-                      key={idx} 
-                      src={screenshot} 
-                      alt={`${currentGame.title} screenshot ${idx + 1}`}
-                      className={`w-[158px] h-[89px] object-cover rounded cursor-pointer hover:opacity-80 transition-opacity ${
-                        isGif(screenshot) ? 'gif-pause hover:gif-play' : ''
-                      }`}
-                      onMouseEnter={() => {
-                        const mainImage = document.querySelector('.main-game-image');
-                        if (mainImage) {
-                          mainImage.src = screenshot;
-                        }
-                      }}
-                      onMouseLeave={() => {
-                        const mainImage = document.querySelector('.main-game-image');
-                        if (mainImage) {
-                          mainImage.src = currentGame.media.banner;
-                        }
-                      }}
-                    />
-                  ))}
+              {/* Game Info (always visible) */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end">
+                <div>
+                  <h2 className="text-2xl font-heading font-bold text-white mb-2">{currentGame.title}</h2>
                 </div>
-
-                {/* Tags Section */}
-                <div className="mt-auto">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <span className="bg-blue-600 text-white px-2 py-0.5 rounded text-xs font-medium">
-                      Now Available
-                    </span>
+                
+                <div className="text-right">
+                  <div className="flex items-center justify-end space-x-2 mb-3">
                     {currentGame.reviews.score >= 80 && (
                       <span className="bg-green-600 text-white px-2 py-0.5 rounded text-xs font-medium">
                         Top Seller
                       </span>
                     )}
+                    <span className="bg-blue-600 text-white px-2 py-0.5 rounded text-xs font-medium">
+                      Now Available
+                    </span>
                   </div>
 
-                  <div className="flex items-center space-x-3 mb-3">
+                  <div className="flex items-center justify-end space-x-3 mb-2">
                     {currentGame.platforms.includes('windows') && <FaWindows className="text-gray-300 text-lg" />}
                     {currentGame.platforms.includes('mac') && <FaApple className="text-gray-300 text-lg" />}
                     {currentGame.platforms.includes('linux') && <FaLinux className="text-gray-300 text-lg" />}
                   </div>
 
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center justify-end space-x-2">
                     {currentGame.pricing.discountPercentage > 0 && (
                       <span className="bg-green-600 text-white text-base font-bold px-2 py-0.5 rounded">
                         -{currentGame.pricing.discountPercentage}%

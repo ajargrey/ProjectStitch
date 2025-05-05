@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
-import { FaWindows, FaApple, FaLinux } from 'react-icons/fa'
-import { formatDate, formatPrice } from '../../utils/formatters'
-import GameListHover from './GameListHover'
 
-const GameList = ({ gameCollections }) => {
+const GameList = ({ gameCollections, onGameSelect }) => {
   const [activeTab, setActiveTab] = useState('newAndTrending')
   const [hoveredGame, setHoveredGame] = useState(null)
   
@@ -12,6 +9,7 @@ const GameList = ({ gameCollections }) => {
     const activeGames = getActiveGames()
     if (activeGames.length > 0) {
       setHoveredGame(activeGames[0].id)
+      onGameSelect(activeGames[0])
     }
   }, [activeTab])
 
@@ -26,10 +24,6 @@ const GameList = ({ gameCollections }) => {
       default:
         return gameCollections.newAndTrending
     }
-  }
-
-  const isGif = (url) => {
-    return url.toLowerCase().endsWith('.gif')
   }
   
   return (
@@ -68,46 +62,29 @@ const GameList = ({ gameCollections }) => {
         </button>
       </div>
       
-      {/* Game List and Hover Details */}
-      <div className="flex gap-6">
-        {/* Game List */}
-        <div className="w-[65%] bg-gray-600 rounded-b-lg">
-          {getActiveGames().map(game => (
-            <div 
-              key={game.id}
-              className={`flex items-center p-2 hover:bg-gray-500 transition-colors border-b border-gray-700 last:border-b-0 cursor-pointer ${
-                hoveredGame === game.id ? 'bg-gray-500' : ''
-              }`}
-              onMouseEnter={() => setHoveredGame(game.id)}
-            >
-              <div className="w-40 h-24 flex-shrink-0">
-                <img
-                  src={game.media.thumbnail}
-                  alt={game.title}
-                  className={`w-full h-full object-cover rounded ${
-                    isGif(game.media.thumbnail) ? 'gif-pause hover:gif-play' : ''
-                  }`}
-                />
-              </div>
-              
-              <div className="ml-4 flex-1">
-                <h3 className="font-medium text-lg mb-1">{game.title}</h3>
-                <div className="flex items-center space-x-2 text-sm text-gray-300">
-                  <span>{formatDate(game.publishDate)}</span>
-                  <span>•</span>
-                  <span>{game.reviews.count} reviews</span>
-                </div>
+      {/* Game List */}
+      <div className="bg-gray-600 rounded-b-lg">
+        {getActiveGames().map(game => (
+          <div 
+            key={game.id}
+            className={`flex items-center p-4 hover:bg-gray-500 transition-colors border-b border-gray-700 last:border-b-0 cursor-pointer ${
+              hoveredGame === game.id ? 'bg-gray-500' : ''
+            }`}
+            onMouseEnter={() => {
+              setHoveredGame(game.id)
+              onGameSelect(game)
+            }}
+          >
+            <div className="flex-1">
+              <h3 className="font-medium text-lg mb-1">{game.title}</h3>
+              <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <span>{new Date(game.publishDate).toLocaleDateString()}</span>
+                <span>•</span>
+                <span>{game.reviews.count} reviews</span>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Hover Details Panel */}
-        <div className="w-[35%] bg-gray-500 rounded-lg p-4 h-fit sticky top-4">
-          <GameListHover 
-            game={getActiveGames().find(g => g.id === hoveredGame) || getActiveGames()[0]} 
-          />
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   )
