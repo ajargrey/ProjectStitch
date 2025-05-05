@@ -41,7 +41,7 @@ const GameDetailsPanel = ({ game }) => {
           <img 
             src={selectedImage || game.media.thumbnail}
             alt={game.title}
-            className="w-full aspect-video object-cover"
+            className="w-full aspect-video object-contain bg-gray-900"
           />
         </div>
 
@@ -53,7 +53,7 @@ const GameDetailsPanel = ({ game }) => {
                 key={idx}
                 src={screenshot}
                 alt={`${game.title} screenshot ${idx + 1}`}
-                className="w-full aspect-video object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                className="w-full aspect-video object-contain bg-gray-900 cursor-pointer hover:opacity-80 transition-opacity"
                 onMouseEnter={() => setSelectedImage(screenshot)}
                 onMouseLeave={() => setSelectedImage(null)}
               />
