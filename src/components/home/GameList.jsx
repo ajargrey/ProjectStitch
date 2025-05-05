@@ -71,7 +71,7 @@ const GameList = ({ gameCollections }) => {
       {/* Game List and Hover Details */}
       <div className="flex gap-6">
         {/* Game List */}
-        <div className="w-[70%] bg-gray-600 rounded-b-lg">
+        <div className="w-[65%] bg-gray-600 rounded-b-lg">
           {getActiveGames().map(game => (
             <div 
               key={game.id}
@@ -80,7 +80,7 @@ const GameList = ({ gameCollections }) => {
               }`}
               onMouseEnter={() => setHoveredGame(game.id)}
             >
-              <div className="w-48 h-24 flex-shrink-0">
+              <div className="w-40 h-24 flex-shrink-0">
                 <img
                   src={game.media.thumbnail}
                   alt={game.title}
@@ -90,49 +90,12 @@ const GameList = ({ gameCollections }) => {
                 />
               </div>
               
-              <div className="flex-grow px-4">
-                <div className="flex justify-between items-start mb-1">
-                  <div>
-                    <h3 className="font-medium text-lg text-white">{game.title}</h3>
-                    <div className="flex items-center space-x-2 text-gray-400">
-                      {game.platforms.includes('windows') && <FaWindows />}
-                      {game.platforms.includes('mac') && <FaApple />}
-                      {game.platforms.includes('linux') && <FaLinux />}
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="flex items-center justify-end space-x-2">
-                      {game.pricing.discountPercentage > 0 && (
-                        <span className="bg-green-600 text-white px-2 py-0.5 rounded text-sm">
-                          -{game.pricing.discountPercentage}%
-                        </span>
-                      )}
-                      {game.pricing.basePrice !== game.pricing.currentPrice && (
-                        <span className="text-gray-400 line-through text-sm">
-                          {formatPrice(game.pricing.basePrice)}
-                        </span>
-                      )}
-                      <span className="text-white font-medium">
-                        {game.pricing.currentPrice === 0 
-                          ? 'Free' 
-                          : formatPrice(game.pricing.currentPrice)}
-                      </span>
-                    </div>
-                    <div className="text-sm text-gray-400 mt-1">
-                      {formatDate(game.publishDate)}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="flex flex-wrap gap-2">
-                  {game.tags.slice(0, 4).map(tag => (
-                    <span 
-                      key={tag} 
-                      className="text-xs text-gray-300 bg-gray-700 px-2 py-0.5 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <div className="ml-4 flex-1">
+                <h3 className="font-medium text-lg mb-1">{game.title}</h3>
+                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                  <span>{formatDate(game.publishDate)}</span>
+                  <span>•</span>
+                  <span>{game.reviews.count} reviews</span>
                 </div>
               </div>
             </div>
@@ -140,7 +103,7 @@ const GameList = ({ gameCollections }) => {
         </div>
 
         {/* Hover Details Panel */}
-        <div className="w-[30%] bg-gray-500 rounded-lg p-4 h-fit sticky top-4">
+        <div className="w-[35%] bg-gray-500 rounded-lg p-4 h-fit sticky top-4">
           <GameListHover 
             game={getActiveGames().find(g => g.id === hoveredGame) || getActiveGames()[0]} 
           />

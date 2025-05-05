@@ -11,7 +11,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-heading font-bold text-white mb-4">FEATURED &amp; RECOMMENDED</h2>
       <FeaturedCarousel games={gameCollection.featured} />
       
       <GameList gameCollections={gameCollection} />

@@ -17,7 +17,7 @@
       },
       "media": {
         "thumbnail": "https://img.itch.zone/aW1nLzE5OTQ0NjU3LmdpZg==/original/1tXiLW.gif",
-        "banner": "https://img.itch.zone/aW1nLzE5OTQ0NjU3LmdpZg==/original/1tXiLW.gif",
+        "banner": "https://img.itch.zone/aW1nLzE5OTQ0NTI5LnBuZw==/original/UvaOtQ.png",
         "screenshots": [
           "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNy5wbmc=/347x500/niUT40.png",
           "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNi5wbmc=/347x500/Gj8bAB.png",
@@ -32,7 +32,7 @@
     },
     {
       "id": "game2",
-      "title": "Mythic Legends",
+      "title": "Voices of the Void",
       "publishDate": "2025-04-15T00:00:00.000Z",
       "lastUpdate": "2025-04-15T00:00:00.000Z",
       "reviews": {
@@ -46,13 +46,13 @@
         "currentPrice": 49.99
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/5696555/pexels-photo-5696555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/3747139/pexels-photo-3747139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://img.itch.zone/aW1nLzE3Mzk3NTAwLnBuZw==/315x250%23c/bAUZWd.png",
+        "banner": "https://img.itch.zone/aW1nLzE3Mzk3NTAwLnBuZw==/315x250%23c/bAUZWd.png",
         "screenshots": [
-          "https://images.pexels.com/photos/7267852/pexels-photo-7267852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/7680006/pexels-photo-7680006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/5428283/pexels-photo-5428283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/5428288/pexels-photo-5428288.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNy5wbmc=/347x500/niUT40.png",
+          "https://img.itch.zone/aW1hZ2UvMTYzNTQ2NS8xNzM5Njc4MS5wbmc=/794x1000/CVIvrb.png",
+          "https://img.itch.zone/aW1hZ2UvMTYzNTQ2NS8xNzM5Njc3OC5wbmc=/794x1000/6vKE65.png",
+          "https://img.itch.zone/aW1hZ2UvMTYzNTQ2NS8xNzM5Njc3OS5wbmc=/794x1000/JQmh49.png"
         ],
         "videos": ["video1.mp4", "video2.mp4"]
       },
@@ -61,7 +61,7 @@
     },
     {
       "id": "game3",
-      "title": "Quantum Breach",
+      "title": "Andromeda Six",
       "publishDate": "2025-04-05T00:00:00.000Z",
       "lastUpdate": "2025-04-05T00:00:00.000Z",
       "reviews": {
@@ -75,8 +75,8 @@
         "currentPrice": 25.49
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://img.itch.zone/aW1nLzMzNjg5MjEucG5n/315x250%23c/1yA0mb.png",
+        "banner": "https://img.itch.zone/aW1nLzMzNjIxMDMucG5n/original/cdX6ov.png",
         "screenshots": [
           "https://images.pexels.com/photos/6330644/pexels-photo-6330644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
           "https://images.pexels.com/photos/7312927/pexels-photo-7312927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
