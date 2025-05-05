@@ -37,26 +37,53 @@ const GameDetailsPanel = ({ game }) => {
         </div>
 
         {/* Main Image */}
-        <div>
-          <img 
-            src={selectedImage || game.media.thumbnail}
-            alt={game.title}
-            className="w-full aspect-video object-contain bg-gray-900"
-          />
+        <div className="relative">
+          {/* Blurred Background */}
+          <div className="absolute inset-0">
+            <img 
+              src={selectedImage || game.media.thumbnail}
+              alt=""
+              className="w-full h-full object-cover blur-xl scale-110"
+            />
+            <div className="absolute inset-0 bg-gray-900/50" />
+          </div>
+
+          {/* Main Image */}
+          <div className="relative aspect-video flex items-center justify-center">
+            <img 
+              src={selectedImage || game.media.thumbnail}
+              alt={game.title}
+              className="h-full w-auto object-contain"
+            />
+          </div>
         </div>
 
         {/* Media Grid */}
         <div className="px-6">
           <div className="grid grid-cols-1 gap-2">
             {game.media.screenshots.map((screenshot, idx) => (
-              <img 
-                key={idx}
-                src={screenshot}
-                alt={`${game.title} screenshot ${idx + 1}`}
-                className="w-full aspect-video object-contain bg-gray-900 cursor-pointer hover:opacity-80 transition-opacity"
-                onMouseEnter={() => setSelectedImage(screenshot)}
-                onMouseLeave={() => setSelectedImage(null)}
-              />
+              <div key={idx} className="relative">
+                {/* Blurred Background */}
+                <div className="absolute inset-0">
+                  <img 
+                    src={screenshot}
+                    alt=""
+                    className="w-full h-full object-cover blur-xl scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gray-900/50" />
+                </div>
+
+                {/* Main Image */}
+                <div className="relative aspect-video flex items-center justify-center">
+                  <img 
+                    src={screenshot}
+                    alt={`${game.title} screenshot ${idx + 1}`}
+                    className="h-full w-auto object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                    onMouseEnter={() => setSelectedImage(screenshot)}
+                    onMouseLeave={() => setSelectedImage(null)}
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>

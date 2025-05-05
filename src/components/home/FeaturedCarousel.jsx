@@ -67,12 +67,24 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
             }}
             onMouseLeave={() => setIsPaused(false)}
           >
+            {/* Blurred Background */}
+            <div className="absolute inset-0">
+              <img 
+                src={currentGame.media.banner}
+                alt=""
+                className="w-full h-full object-cover blur-xl scale-110"
+              />
+              <div className="absolute inset-0 bg-gray-900/50" />
+            </div>
+
             {/* Main Image */}
-            <img 
-              src={currentGame.media.banner}
-              alt={currentGame.title}
-              className="w-full h-full object-contain bg-gray-900"
-            />
+            <div className="relative h-full flex items-center justify-center">
+              <img 
+                src={currentGame.media.banner}
+                alt={currentGame.title}
+                className="h-full w-auto object-contain"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />
 
             {/* Game Info (always visible) */}
