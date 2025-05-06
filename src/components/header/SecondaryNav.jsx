@@ -41,7 +41,7 @@ const SecondaryNav = () => {
   return (
     <div className="bg-gray-800 py-2 shadow-md relative">
       <div className="flex justify-center">
-        <div className="w-[1920px] px-4">
+        <div className="w-full max-w-[1080px] px-4">
           <div className="flex items-center justify-between">
             <div className="flex space-x-6">
               <Link to="/" className="text-gray-300 hover:text-white transition-colors">

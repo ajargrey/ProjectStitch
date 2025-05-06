@@ -50,8 +50,10 @@ const HomePage = () => {
         </div>
 
         <div className="w-[320px] flex-shrink-0">
-          <div className="fixed top-[4rem] right-0 w-[320px] h-[calc(100vh-4rem)] bg-gray-800">
-            <GameDetailsPanel game={hoveredGame || selectedGame} />
+          <div className="fixed top-0 right-0 w-[320px] h-screen bg-gray-800">
+            <div className="mt-[4rem]">
+              <GameDetailsPanel game={hoveredGame || selectedGame} />
+            </div>
           </div>
         </div>
       </div>
