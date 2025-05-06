@@ -122,7 +122,7 @@ const GameDetailsPanel = ({ game }) => {
         {/* Slideshow */}
         <div className="px-6">
           <div 
-            className="relative w-full bg-gray-800 rounded-lg overflow-hidden aspect-[16/9]"
+            className="relative w-full bg-gray-800 rounded-lg overflow-hidden aspect-square"
           >
             <div className="absolute inset-0 flex items-center justify-center">
               <img 
