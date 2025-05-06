@@ -134,6 +134,11 @@ const GameDetailsPanel = ({ game }) => {
           </div>
         </div>
 
+        {/* Small Description */}
+        <div className="px-6">
+          <p className="text-gray-300 text-sm">{game.smallDescription}</p>
+        </div>
+
         {/* Reviews */}
         <div className="px-6">
           <div className="flex items-center space-x-2">

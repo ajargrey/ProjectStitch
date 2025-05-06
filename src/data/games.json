@@ -3,6 +3,7 @@
     {
       "id": "game1",
       "title": "The Boba Teashop (Demo)",
+      "smallDescription": "Experience the mysterious atmosphere of an abandoned boba tea shop with secrets lurking in the shadows.",
       "publishDate": "2025-02-14T00:00:00.000Z",
       "lastUpdate": "2025-05-01T00:00:00.000Z",
       "reviews": {
@@ -33,6 +34,7 @@
     {
       "id": "game2",
       "title": "Voices of the Void",
+      "smallDescription": "A massive multiplayer RPG set in a dark fantasy world where cosmic entities battle for control of reality.",
       "publishDate": "2025-04-15T00:00:00.000Z",
       "lastUpdate": "2025-04-15T00:00:00.000Z",
       "reviews": {
@@ -62,6 +64,7 @@
     {
       "id": "game3",
       "title": "Andromeda Six",
+      "smallDescription": "Solve mind-bending puzzles in a sci-fi adventure that explores the boundaries of human consciousness.",
       "publishDate": "2025-04-05T00:00:00.000Z",
       "lastUpdate": "2025-04-05T00:00:00.000Z",
       "reviews": {
@@ -91,6 +94,7 @@
     {
       "id": "game4",
       "title": "Twilight Survivors",
+      "smallDescription": "A post-apocalyptic survival game where you must build, craft, and fight to live through endless zombie hordes.",
       "publishDate": "2025-03-20T00:00:00.000Z",
       "lastUpdate": "2025-03-20T00:00:00.000Z",
       "reviews": {
@@ -120,6 +124,7 @@
     {
       "id": "game5",
       "title": "Pixelverse",
+      "smallDescription": "Build anything you can imagine in this infinite procedurally generated voxel universe with endless possibilities.",
       "publishDate": "2025-03-10T00:00:00.000Z",
       "lastUpdate": "2025-03-10T00:00:00.000Z",
       "reviews": {
@@ -148,36 +153,38 @@
     },
     {
       "id": "game6",
-      "title": "Racing Thunder",
-      "publishDate": "2025-02-28T00:00:00.000Z",
-      "lastUpdate": "2025-02-28T00:00:00.000Z",
+      "title": "Neon Flux",
+      "smallDescription": "A high-octane cyberpunk racing game with futuristic vehicles, gravity-defying tracks, and competitive multiplayer.",
+      "publishDate": "2025-03-01T00:00:00.000Z",
+      "lastUpdate": "2025-03-01T00:00:00.000Z",
       "reviews": {
-        "count": 2891,
-        "score": 81
+        "count": 4587,
+        "score": 82
       },
-      "tags": ["racing", "sports", "multiplayer", "competitive", "simulation"],
+      "tags": ["racing", "action", "arcade", "cyberpunk", "multiplayer"],
       "pricing": {
-        "basePrice": 44.99,
-        "discountPercentage": 10,
-        "currentPrice": 40.49
+        "basePrice": 19.99,
+        "discountPercentage": 0,
+        "currentPrice": 19.99
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/2127015/pexels-photo-2127015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/12801036/pexels-photo-12801036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://img.itch.zone/aW1nLzc2MDM3OTkucG5n/315x250%23c/GfJ7o%2F.png",
+        "banner": "https://img.itch.zone/aW1nLzc2MDM4MDEucG5n/original/TRtLrx.png",
         "screenshots": [
-          "https://images.pexels.com/photos/2127015/pexels-photo-2127015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/12801036/pexels-photo-12801036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/7312927/pexels-photo-7312927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/8294606/pexels-photo-8294606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         ],
         "videos": ["video1.mp4", "video2.mp4"]
       },
-      "platforms": ["windows"],
-      "features": ["Realistic physics", "Vehicle customization", "Global leaderboards", "Seasonal events"]
+      "platforms": ["windows", "mac"],
+      "features": ["Race tracks", "Vehicle customization", "Multiplayer races", "Leaderboards"]
     },
     {
       "id": "game7",
       "title": "Frontier Odyssey",
+      "smallDescription": "Explore an endless procedurally generated universe filled with unique planets, alien species, and interstellar mysteries.",
       "publishDate": "2025-02-15T00:00:00.000Z",
       "lastUpdate": "2025-02-15T00:00:00.000Z",
       "reviews": {
@@ -207,6 +214,7 @@
     {
       "id": "game8",
       "title": "Shadow Tactics",
+      "smallDescription": "Command a squad of elite agents with unique abilities in this tactical stealth game set in a dark medieval world.",
       "publishDate": "2025-02-05T00:00:00.000Z",
       "lastUpdate": "2025-02-05T00:00:00.000Z",
       "reviews": {
@@ -236,6 +244,7 @@
     {
       "id": "game9",
       "title": "Crystal Kingdoms",
+      "smallDescription": "Embark on an epic fantasy journey through magical realms where your choices shape the fate of the world.",
       "publishDate": "2025-01-25T00:00:00.000Z",
       "lastUpdate": "2025-01-25T00:00:00.000Z",
       "reviews": {
@@ -265,6 +274,7 @@
     {
       "id": "game10",
       "title": "Urban Brawlers",
+      "smallDescription": "Master unique fighting styles and compete in tournaments in this competitive esports-ready fighting game.",
       "publishDate": "2025-01-15T00:00:00.000Z",
       "lastUpdate": "2025-01-15T00:00:00.000Z",
       "reviews": {
@@ -294,6 +304,7 @@
     {
       "id": "game11",
       "title": "Echo Valley",
+      "smallDescription": "Build your dream farm, raise animals, and connect with the local community in this relaxing life simulation game.",
       "publishDate": "2025-01-05T00:00:00.000Z",
       "lastUpdate": "2025-01-05T00:00:00.000Z",
       "reviews": {
@@ -322,32 +333,33 @@
     },
     {
       "id": "game12",
-      "title": "Dungeon Delvers",
-      "publishDate": "2024-12-20T00:00:00.000Z",
-      "lastUpdate": "2024-12-20T00:00:00.000Z",
+      "title": "Spectral Investigations",
+      "smallDescription": "Join a team of paranormal investigators and solve haunting mysteries using your psychic abilities and ghost-hunting tools.",
+      "publishDate": "2024-12-15T00:00:00.000Z",
+      "lastUpdate": "2024-12-15T00:00:00.000Z",
       "reviews": {
-        "count": 4178,
-        "score": 85
+        "count": 1832,
+        "score": 84
       },
-      "tags": ["roguelike", "dungeon-crawler", "rpg", "action", "procedural", "co-op"],
+      "tags": ["horror", "mystery", "puzzle", "supernatural", "co-op"],
       "pricing": {
-        "basePrice": 0,
+        "basePrice": 24.99,
         "discountPercentage": 0,
-        "currentPrice": 0
+        "currentPrice": 24.99
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/164862/pexels-photo-164862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/6280443/pexels-photo-6280443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "banner": "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "screenshots": [
-          "https://images.pexels.com/photos/164862/pexels-photo-164862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/6280443/pexels-photo-6280443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/2115367/pexels-photo-2115367.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/3401402/pexels-photo-3401402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         ],
         "videos": ["video1.mp4", "video2.mp4"]
       },
-      "platforms": ["windows", "mac", "linux"],
-      "features": ["Procedural dungeons", "Character classes", "Loot system", "Cooperative play"]
+      "platforms": ["windows", "mac"],
+      "features": ["Co-op gameplay", "Procedural hauntings", "Ghost hunting tools", "Investigation mechanics"]
     }
   ]
 }
