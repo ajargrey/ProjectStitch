@@ -37,13 +37,15 @@ const GameDetailsPanel = ({ game }) => {
         </div>
 
         {/* Main Image */}
-        <div className="relative w-full bg-gray-800">
-          <div className="flex items-center justify-center">
-            <img 
-              src={selectedImage || game.media.thumbnail}
-              alt={game.title}
-              className="w-full h-auto object-contain max-h-[300px]"
-            />
+        <div className="px-6">
+          <div className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
+            <div className="flex items-center justify-center">
+              <img 
+                src={selectedImage || game.media.thumbnail}
+                alt={game.title}
+                className="w-full h-auto object-contain max-h-[300px]"
+              />
+            </div>
           </div>
         </div>
 
