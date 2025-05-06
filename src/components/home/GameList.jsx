@@ -137,21 +137,21 @@ const GameList = ({ gameCollections, onGameSelect }) => {
               </div>
 
               {/* Column 3: Price & Dates */}
-              <div className="flex flex-col items-end text-xs text-gray-400 space-y-1 w-36 text-right flex-shrink-0">
+              <div className="flex flex-col items-end space-y-1 w-36 text-right flex-shrink-0">
                 {/* Price Section */}
-                <div className="flex items-center justify-end space-x-2 h-6">
+                <div className="flex items-center justify-end space-x-2">
                   {game.pricing.discountPercentage > 0 && (
-                    <span className="bg-success-600 text-white text-sm font-bold px-1.5 py-0.5 rounded">
+                    <span className="bg-green-600 text-white text-base font-bold px-2 py-0.5 rounded">
                       -{game.pricing.discountPercentage}%
                     </span>
                   )}
                   <div className="flex flex-col items-end">
                     {game.pricing.discountPercentage > 0 && (
-                      <span className="text-gray-500 line-through text-xs">
+                      <span className="text-gray-400 line-through text-sm">
                         {formatPrice(game.pricing.basePrice)}
                       </span>
                     )}
-                    <span className="text-white text-sm font-medium">
+                    <span className="text-white font-bold text-lg">
                       {game.pricing.currentPrice === 0 
                         ? 'Free to Play' 
                         : formatPrice(game.pricing.currentPrice)}
@@ -160,12 +160,12 @@ const GameList = ({ gameCollections, onGameSelect }) => {
                 </div>
                 
                 {/* Dates Section - ensure consistent space even if date missing */}
-                <div className="h-4">
+                <div className="text-xs text-gray-400">
                   {showUpdateDate && (
                     <span title={`Last Updated: ${updateDateFormatted}`}>Updated: {updateDateFormatted}</span>
                   )}
                 </div>
-                <div className="h-4">
+                <div className="text-xs text-gray-400">
                   {publishDateFormatted && (
                     <span title={`Published: ${publishDateFormatted}`}>{publishDateFormatted}</span>
                   )}
