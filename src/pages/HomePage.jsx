@@ -19,7 +19,7 @@ const HomePage = () => {
   return (
     <div className="flex justify-center">
       <div className="flex w-full max-w-[1520px]">
-        <div className="w-[400px] flex-shrink-0" />
+        <div className="w-[240px] flex-shrink-0" />
         <div className="flex-1 px-4">
           <div className="max-w-[1080px]">
             <FeaturedCarousel 
@@ -49,7 +49,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="w-[400px] flex-shrink-0 bg-gray-800 sticky top-[8rem] h-[calc(100vh-8rem)]">
+        <div className="w-[320px] flex-shrink-0 bg-gray-800 sticky top-[8rem] h-[calc(100vh-8rem)]">
           <GameDetailsPanel game={hoveredGame || selectedGame} />
         </div>
       </div>
