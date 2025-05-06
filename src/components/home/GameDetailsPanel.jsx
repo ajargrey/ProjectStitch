@@ -8,7 +8,7 @@ const GameDetailsPanel = ({ game }) => {
   if (!game) return null
   
   return (
-    <div className="h-[calc(100vh-8rem)] sticky top-[8rem] overflow-y-auto w-[400px] bg-gray-900">
+    <div className="h-full overflow-y-auto bg-gray-900">
       <div className="space-y-4 w-full">
         {/* Game Title and Reviews */}
         <div className="px-6 pt-4">
