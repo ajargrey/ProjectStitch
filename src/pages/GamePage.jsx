@@ -82,18 +82,18 @@ const GamePage = () => {
               </div>
               
               {/* Main content with original aspect ratio */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center p-2">
                 {isVideo(currentMedia) ? (
                   <video
                     src={currentMedia}
                     controls
-                    className="max-w-full max-h-full w-auto h-auto object-contain z-10"
+                    className="min-w-[90%] min-h-[90%] max-w-full max-h-full object-contain z-10"
                   />
                 ) : (
                   <img 
                     src={currentMedia}
                     alt={`${game.title} media`}
-                    className="max-w-full max-h-full w-auto h-auto object-contain z-10"
+                    className="min-w-[90%] min-h-[90%] max-w-full max-h-full object-contain z-10"
                   />
                 )}
               </div>
