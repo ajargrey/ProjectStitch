@@ -124,11 +124,22 @@ const GameDetailsPanel = ({ game }) => {
           <div 
             className="relative w-full bg-gray-800 rounded-lg overflow-hidden aspect-square"
           >
+            {/* Blurred background image */}
+            <div className="absolute inset-0">
+              <img 
+                src={currentImage}
+                alt=""
+                className="w-full h-full object-cover blur-sm scale-110"
+              />
+              <div className="absolute inset-0 bg-black/30" />
+            </div>
+            
+            {/* Main image */}
             <div className="absolute inset-0 flex items-center justify-center">
               <img 
                 src={currentImage}
                 alt={game.title}
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-full object-contain z-10"
               />
             </div>
           </div>
@@ -181,7 +192,17 @@ const GameDetailsPanel = ({ game }) => {
         {/* Main Thumbnail */}
         <div className="px-6">
           <div className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
-            <div className="flex items-center justify-center">
+            {/* Blurred background image */}
+            <div className="absolute inset-0">
+              <img 
+                src={game.media.thumbnail}
+                alt=""
+                className="w-full h-full object-cover blur-sm scale-110"
+              />
+              <div className="absolute inset-0 bg-black/30" />
+            </div>
+            
+            <div className="relative flex items-center justify-center z-10">
               <img 
                 src={game.media.thumbnail}
                 alt={game.title}
@@ -196,7 +217,17 @@ const GameDetailsPanel = ({ game }) => {
           <div className="grid grid-cols-1 gap-2">
             {game.media.screenshots.map((screenshot, idx) => (
               <div key={idx} className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
-                <div className="flex items-center justify-center">
+                {/* Blurred background image */}
+                <div className="absolute inset-0">
+                  <img 
+                    src={screenshot}
+                    alt=""
+                    className="w-full h-full object-cover blur-sm scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/30" />
+                </div>
+                
+                <div className="relative flex items-center justify-center z-10">
                   <img 
                     src={screenshot}
                     alt={`${game.title} screenshot ${idx + 1}`}
