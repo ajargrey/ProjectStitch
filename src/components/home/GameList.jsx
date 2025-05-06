@@ -118,7 +118,7 @@ const GameList = ({ gameCollections, onGameSelect }) => {
                 <img 
                   src={game.media.banner}
                   alt={`${game.title} banner`}
-                  className="relative w-full h-full object-cover z-10"
+                  className="relative w-full h-full object-contain z-10"
                 />
               </div>
 

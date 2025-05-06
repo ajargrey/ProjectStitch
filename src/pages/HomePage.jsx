@@ -5,32 +5,35 @@ import GameDetailsPanel from '../components/home/GameDetailsPanel'
 import { gameCollection } from '../data/games'
 
 const HomePage = () => {
-  const [selectedGame, setSelectedGame] = useState(gameCollection.featured[0])
-  const [hoveredGame, setHoveredGame] = useState(null)
+  const [carouselSelectedItem, setCarouselSelectedItem] = useState(gameCollection.featured[0])
+  const [hoveredItem, setHoveredItem] = useState(null)
+  const [panelMemoryItem, setPanelMemoryItem] = useState(gameCollection.featured[0])
   const initialLoadRef = useRef(true)
 
   useEffect(() => {
     document.title = 'Stitch - Discover Indie Games'
-    console.log('HomePage: Initial game:', selectedGame.title, selectedGame.id)
+    if (carouselSelectedItem) {
+      console.log('HomePage: Initial/Carousel selected game:', carouselSelectedItem.title, carouselSelectedItem.id)
+    }
     const timer = setTimeout(() => {
       initialLoadRef.current = false
       console.log("HomePage: Initial load flag set to false.")
     }, 500);
     return () => clearTimeout(timer);
-  }, [selectedGame.id, selectedGame.title])
+  }, [carouselSelectedItem])
 
   const handleGameSelect = useCallback((game) => {
     if (initialLoadRef.current) {
       console.log("HomePage: Skipping handleGameSelect during initial load phase.");
       return;
     }
-    console.log('HomePage: handleGameSelect called with:', game ? `${game.title} (${game.id})` : 'null');
+    console.log('HomePage: handleGameSelect (carousel main selection) called with:', game ? `${game.title} (${game.id})` : 'null');
     
     if (game) {
-      setSelectedGame(game)
-      setHoveredGame(game)
+      setCarouselSelectedItem(game);
+      setPanelMemoryItem(game);
     } else {
-      console.warn("HomePage: handleGameSelect called with null game. This shouldn't normally happen from carousel.")
+      console.warn("HomePage: handleGameSelect called with null game from carousel.")
     }
   }, []);
 
@@ -40,12 +43,17 @@ const HomePage = () => {
        return;
     }
     console.log('HomePage: handleGameHover called with:', game ? `${game.title} (${game.id})` : 'null');
-    setHoveredGame(game);
+    setHoveredItem(game);
+    if (game) {
+      setPanelMemoryItem(game);
+    }
   }, []);
 
-  const gameToDisplay = hoveredGame || selectedGame
+  const gameToDisplay = hoveredItem || panelMemoryItem || gameCollection.featured[0] || null;
   
-  console.log('HomePage: Game to display:', gameToDisplay.title, gameToDisplay.id);
+  console.log('HomePage: Game for details panel:', 
+              gameToDisplay ? `${gameToDisplay.title} (${gameToDisplay.id})` : 'None',
+              `(Hover: ${hoveredItem ? hoveredItem.title : 'None'}, Memory: ${panelMemoryItem ? panelMemoryItem.title : 'None'})`);
 
   return (
     <div className="flex justify-center">
@@ -56,6 +64,7 @@ const HomePage = () => {
             <FeaturedCarousel 
               games={gameCollection.featured} 
               onGameSelect={handleGameSelect}
+              onGameHover={handleGameHover}
             />
             
             <GameList 
@@ -83,7 +92,7 @@ const HomePage = () => {
         <div className="w-[320px] flex-shrink-0">
           <div className="fixed top-[4rem] right-0 w-[320px] h-[calc(100vh-4rem)] bg-gray-800">
             <GameDetailsPanel 
-              key={gameToDisplay.id} 
+              key={gameToDisplay ? gameToDisplay.id : 'panel-empty-fallback'} 
               game={gameToDisplay} 
             />
           </div>

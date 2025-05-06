@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { FaWindows, FaApple, FaLinux, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
-const FeaturedCarousel = ({ games, onGameSelect }) => {
+const FeaturedCarousel = ({ games, onGameSelect, onGameHover }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const intervalRef = useRef(null)
@@ -125,12 +125,18 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
           <div 
             className="absolute inset-0"
             onMouseEnter={() => {
-              console.log("FeaturedCarousel: MouseEnter - Pausing")
+              console.log("FeaturedCarousel: MouseEnter - Pausing and Hovering")
               setIsPaused(true)
+              if (onGameHover && currentGame) {
+                onGameHover(currentGame)
+              }
             }}
             onMouseLeave={() => {
-              console.log("FeaturedCarousel: MouseLeave - Resuming")
+              console.log("FeaturedCarousel: MouseLeave - Resuming and Clearing Hover")
               setIsPaused(false)
+              if (onGameHover) {
+                onGameHover(null)
+              }
             }}
           >
             {/* Blurred Background */}

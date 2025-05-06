@@ -3,13 +3,13 @@ import { FaWindows, FaApple, FaLinux } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
 const GameDetailsPanel = ({ game }) => {
-  console.log(`GameDetailsPanel rendering for game: ${game.title} (${game.id})`)
+  console.log(`GameDetailsPanel rendering for game: ${game ? game.title : 'null'} (${game ? game.id : 'null'})`)
   
   const panelRef = useRef(null)
   const [currentSlide, setCurrentSlide] = useState(0)
   const timerRef = useRef(null)
   const [isGifPlaying, setIsGifPlaying] = useState(false)
-  const gameIdRef = useRef(game.id)
+  const gameIdRef = useRef(game ? game.id : null)
 
   // Reset panel position when game changes
   useEffect(() => {
@@ -18,9 +18,10 @@ const GameDetailsPanel = ({ game }) => {
     }
     
     // Force reset internal state if game changed
-    if (gameIdRef.current !== game.id) {
-      console.log(`GameDetailsPanel: Game changed from ${gameIdRef.current} to ${game.id}`)
-      gameIdRef.current = game.id
+    const newGameId = game ? game.id : null; // Safely get new game id
+    if (gameIdRef.current !== newGameId) {
+      console.log(`GameDetailsPanel: Game changed from ${gameIdRef.current} to ${newGameId}`)
+      gameIdRef.current = newGameId
       setCurrentSlide(0)
       setIsGifPlaying(false)
     }
@@ -35,8 +36,12 @@ const GameDetailsPanel = ({ game }) => {
     setCurrentSlide(0)
     setIsGifPlaying(false)
     
-    // Get all media items (thumbnail + screenshots)
-    const allMedia = [game.media.thumbnail, ...game.media.screenshots]
+    // Get all media items (screenshots first, then thumbnail)
+    const allMedia = [...game.media.screenshots, game.media.thumbnail]
+    if (allMedia.length <= 1) {
+        console.log("GameDetailsPanel: Not starting slideshow, only one media item.");
+        return; // Don't start interval if only one item
+    }
     
     // Clear any existing timer
     if (timerRef.current) {
@@ -47,6 +52,10 @@ const GameDetailsPanel = ({ game }) => {
     const startSlideshow = () => {
       // Check if current media is a GIF
       const currentMedia = allMedia[currentSlide]
+      if (!currentMedia) { // Safety check
+        console.error("GameDetailsPanel: currentMedia is undefined in startSlideshow", currentSlide, allMedia);
+        return; 
+      }
       const isGif = currentMedia.toLowerCase().endsWith('.gif')
       
       if (isGif) {
@@ -55,21 +64,22 @@ const GameDetailsPanel = ({ game }) => {
         timerRef.current = setTimeout(() => {
           setIsGifPlaying(false)
           setCurrentSlide(prev => {
-            const next = prev + 1
-            return next >= allMedia.length ? 0 : next
+            const next = (prev + 1) % allMedia.length // Use modulo for looping
+            return next
           })
         }, 5000) // Assuming GIFs take around 5 seconds to play
       } else {
         // For non-GIFs, use the regular 1-second interval
         timerRef.current = setInterval(() => {
           setCurrentSlide(prev => {
-            const next = prev + 1
-            return next >= allMedia.length ? 0 : next
+            const next = (prev + 1) % allMedia.length // Use modulo for looping
+            return next
           })
         }, 1000)
       }
     }
 
+    // Start the slideshow only if there's more than one item
     startSlideshow()
 
     return () => {
@@ -79,52 +89,68 @@ const GameDetailsPanel = ({ game }) => {
         clearTimeout(timerRef.current)
       }
     }
-  }, [game])
+  // Rerun effect when game changes
+  }, [game]) 
 
-  // Separate effect to handle slide changes
+  // Separate effect to handle slide changes and timer logic
   useEffect(() => {
     if (!game) return
 
-    const allMedia = [game.media.thumbnail, ...game.media.screenshots]
-    const currentMedia = allMedia[currentSlide]
+    // Construct media array (screenshots first, then thumbnail)
+    const allMedia = [...game.media.screenshots, game.media.thumbnail]
+    if (allMedia.length <= 1) return; // No slideshow needed for single item
+    
+    const currentMedia = allMedia[currentSlide];
+    if (!currentMedia) { // Safety check
+        console.error("GameDetailsPanel: currentMedia is undefined in slide change effect", currentSlide, allMedia);
+        return; 
+    }
     const isGif = currentMedia.toLowerCase().endsWith('.gif')
 
-    // Clear any existing timer
+    // Clear any existing timer before setting a new one
     if (timerRef.current) {
       clearInterval(timerRef.current)
       clearTimeout(timerRef.current)
+      timerRef.current = null; // Explicitly nullify
     }
+    
+    console.log(`GameDetailsPanel: Setting timer for slide ${currentSlide} (${currentMedia.split('/').pop()}), isGif: ${isGif}`);
 
     if (isGif) {
       setIsGifPlaying(true)
       timerRef.current = setTimeout(() => {
         setIsGifPlaying(false)
-        setCurrentSlide(prev => {
-          const next = prev + 1
-          return next >= allMedia.length ? 0 : next
-        })
+        setCurrentSlide(prev => (prev + 1) % allMedia.length)
       }, 5000)
     } else {
+      // Ensure isGifPlaying is false for non-gifs
+      if(isGifPlaying) setIsGifPlaying(false);
       timerRef.current = setInterval(() => {
-        setCurrentSlide(prev => {
-          const next = prev + 1
-          return next >= allMedia.length ? 0 : next
-        })
+        setCurrentSlide(prev => (prev + 1) % allMedia.length)
       }, 1000)
     }
 
+    // Cleanup function for this specific effect run
     return () => {
+       console.log(`GameDetailsPanel: Cleaning up timer for slide ${currentSlide}`);
       if (timerRef.current) {
         clearInterval(timerRef.current)
         clearTimeout(timerRef.current)
+        timerRef.current = null;
       }
     }
-  }, [currentSlide, game])
+  // Rerun effect when the current slide or the game itself changes
+  }, [currentSlide, game, isGifPlaying]) 
 
   if (!game) return null
   
-  const allMedia = [game.media.thumbnail, ...game.media.screenshots]
-  const currentImage = allMedia[currentSlide]
+  // Construct media array for rendering (screenshots first, then thumbnail)
+  const allMediaForRender = [...game.media.screenshots, game.media.thumbnail]
+  // Handle cases where there might be no screenshots or thumbnail
+  const currentImage = allMediaForRender[currentSlide] || game.media.thumbnail || '' // Fallback
+  if (!currentImage) {
+     console.warn(`GameDetailsPanel: No valid currentImage found for slide ${currentSlide} in game ${game.id}`);
+  }
   
   return (
     <div ref={panelRef} className="h-full overflow-y-auto bg-gray-900 w-[320px]">
