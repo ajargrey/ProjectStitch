@@ -48,7 +48,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-800">
+        <div className="w-[400px] flex-shrink-0 bg-gray-800">
           <GameDetailsPanel game={hoveredGame || selectedGame} />
         </div>
       </div>

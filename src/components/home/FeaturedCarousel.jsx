@@ -54,10 +54,10 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
 
   return (
     <div className="w-full bg-gray-900 mb-8 mt-8">
-      <div className="flex flex-col w-[70%]">
+      <div className="flex flex-col w-full">
         <h2 className="text-2xl font-heading font-bold text-white mb-4">FEATURED &amp; RECOMMENDED</h2>
         
-        <div className="w-[150%] h-[360px] bg-gray-800 rounded-lg overflow-hidden relative">
+        <div className="w-full h-[360px] bg-gray-800 rounded-lg overflow-hidden relative">
           {/* Game Container */}
           <div 
             className="absolute inset-0"
