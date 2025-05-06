@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { FaWindows, FaApple, FaLinux } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
@@ -25,13 +26,13 @@ const GameList = ({ gameCollections, onGameSelect }) => {
   const getActiveGames = () => {
     switch (activeTab) {
       case 'newAndTrending':
-        return gameCollections.newAndTrending
+        return gameCollections.newAndTrending || []
       case 'topSellers':
-        return gameCollections.topSellers
+        return gameCollections.topSellers || []
       case 'trendingFree':
-        return gameCollections.trendingFree
+        return gameCollections.trendingFree || []
       default:
-        return gameCollections.newAndTrending
+        return gameCollections.newAndTrending || []
     }
   }
   
@@ -83,13 +84,17 @@ const GameList = ({ gameCollections, onGameSelect }) => {
       {/* Game List Container - Use slightly darker bg for contrast */}
       <div className="bg-gray-800 rounded-b-lg overflow-hidden">
         {getActiveGames().map(game => {
+          // Skip rendering if game is undefined
+          if (!game) return null;
+
           const publishDateFormatted = formatDate(game.publishDate);
           const updateDateFormatted = game.lastUpdate && formatDate(game.lastUpdate);
           const showUpdateDate = updateDateFormatted && updateDateFormatted !== publishDateFormatted;
 
           return (
-            <div 
+            <Link 
               key={game.id}
+              to={`/games/${game.devSlug}/${game.gameSlug}`}
               className={`flex items-center p-2 hover:bg-gray-700 transition-colors border-b border-gray-700 last:border-b-0 cursor-pointer space-x-3 ${
                 hoveredGameId === game.id ? 'bg-gray-700' : 'bg-gray-800'
               }`}
@@ -171,7 +176,7 @@ const GameList = ({ gameCollections, onGameSelect }) => {
                   )}
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

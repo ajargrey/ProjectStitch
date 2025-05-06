@@ -1,9 +1,14 @@
 import gamesData from './games.json'
 
+const isValidDate = (dateString) => {
+  const date = new Date(dateString);
+  return date instanceof Date && !isNaN(date);
+}
+
 export const games = gamesData.games.map(game => ({
   ...game,
-  publishDate: new Date(game.publishDate),
-  lastUpdate: new Date(game.lastUpdate)
+  publishDate: isValidDate(game.publishDate) ? new Date(game.publishDate) : null,
+  lastUpdate: isValidDate(game.lastUpdate) ? new Date(game.lastUpdate) : null
 }))
 
 export const gameCollection = {

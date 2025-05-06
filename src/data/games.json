@@ -1,8 +1,11 @@
 {
   "games": [
     {
-      "id": "game1",
+      "id": 1,
       "title": "The Boba Teashop (Demo)",
+      "devSlug": "ghost-tea-games",
+      "gameSlug": "the-boba-teashop-demo",
+      "developer": "Ghost Tea Games",
       "smallDescription": "Experience the mysterious atmosphere of an abandoned boba tea shop with secrets lurking in the shadows.",
       "publishDate": "2025-02-14T00:00:00.000Z",
       "lastUpdate": "2025-05-01T00:00:00.000Z",
@@ -26,14 +29,17 @@
           "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwNC5wbmc=/347x500/OOGXQE.png",
           "https://img.itch.zone/aW1hZ2UvMzMwNjI2My8xOTc0NzIwMy5wbmc=/347x500/RKc7qm.png"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac"],
       "features": ["Open world exploration", "Character customization", "Immersive story", "Multiple endings"]
     },
     {
-      "id": "game2",
+      "id": 2,
       "title": "Voices of the Void",
+      "devSlug": "cosmic-games",
+      "gameSlug": "voices-of-the-void",
+      "developer": "Cosmic Games",
       "smallDescription": "A massive multiplayer RPG set in a dark fantasy world where cosmic entities battle for control of reality.",
       "publishDate": "2025-04-15T00:00:00.000Z",
       "lastUpdate": "2025-04-15T00:00:00.000Z",
@@ -56,14 +62,17 @@
           "https://img.itch.zone/aW1hZ2UvMTYzNTQ2NS8xNzM5Njc3OC5wbmc=/794x1000/6vKE65.png",
           "https://img.itch.zone/aW1hZ2UvMTYzNTQ2NS8xNzM5Njc3OS5wbmc=/794x1000/JQmh49.png"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "linux"],
       "features": ["Massive multiplayer world", "Epic boss battles", "Crafting system", "Guild system"]
     },
     {
-      "id": "game3",
+      "id": 3,
       "title": "Andromeda Six",
+      "devSlug": "stellar-games",
+      "gameSlug": "andromeda-six",
+      "developer": "Stellar Games",
       "smallDescription": "Solve mind-bending puzzles in a sci-fi adventure that explores the boundaries of human consciousness.",
       "publishDate": "2025-04-05T00:00:00.000Z",
       "lastUpdate": "2025-04-05T00:00:00.000Z",
@@ -86,14 +95,17 @@
           "https://img.itch.zone/aW1hZ2UvNDY5OTE3LzE5OTQzODMyLnBuZw==/794x1000/8nmhiT.png",
           "https://img.itch.zone/aW1hZ2UvNDY5OTE3LzE5OTQzODQxLnBuZw==/794x1000/4Fdute.png"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac", "linux"],
       "features": ["Mind-bending puzzles", "Immersive environment", "Physics manipulation", "Narrative experience"]
     },
     {
-      "id": "game4",
+      "id": 4,
       "title": "Digging Hours",
+      "devSlug": "zombie-studio",
+      "gameSlug": "digging-hours",
+      "developer": "Zombie Studio",
       "smallDescription": "A post-apocalyptic survival game where you must build, craft, and fight to live through endless zombie hordes.",
       "publishDate": "2025-03-20T00:00:00.000Z",
       "lastUpdate": "2025-03-20T00:00:00.000Z",
@@ -116,22 +128,25 @@
           "https://img.itch.zone/aW1hZ2UvMzUxMTA0NC8yMTAwNjI4OC5wbmc=/347x500/fxnkU4.png",
           "https://img.itch.zone/aW1hZ2UvMzUxMTA0NC8yMTAwNjI4OS5wbmc=/347x500/JhcSV%2F.png"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows"],
       "features": ["Crafting", "Base building", "Zombie hordes", "Day-night cycle"]
     },
     {
-      "id": "game5",
+      "id": 5,
       "title": "RUN BEFORE HE KNOWS",
-      "smallDescription": "Build anything you can imagine in this infinite procedurally generated voxel universe with endless possibilities.",
+      "devSlug": "horror-games",
+      "gameSlug": "run-before-he-knows",
+      "developer": "Horror Games",
+      "smallDescription": "A terrifying first-person horror game where you must escape a relentless pursuer in a twisted mansion.",
       "publishDate": "2025-03-10T00:00:00.000Z",
       "lastUpdate": "2025-03-10T00:00:00.000Z",
       "reviews": {
         "count": 7432,
         "score": 94
       },
-      "tags": ["sandbox", "building", "crafting", "multiplayer", "procedural", "adventure"],
+      "tags": ["horror", "first-person", "survival", "psychological", "singleplayer"],
       "pricing": {
         "basePrice": 24.99,
         "discountPercentage": 0,
@@ -146,22 +161,25 @@
           "https://img.itch.zone/aW1hZ2UvMzQ5NzY3Mi8yMDg3NjMwOS5wbmc=/794x1000/Lu3%2BTx.png",
           "https://img.itch.zone/aW1hZ2UvMzQ5NzY3Mi8yMDg3NjMxMS5wbmc=/794x1000/z7OnUZ.png"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac", "linux"],
-      "features": ["Infinite worlds", "Multiplayer servers", "Modding support", "Regular updates"]
+      "features": ["Dynamic AI", "Procedural events", "Multiple endings", "Atmospheric sound design"]
     },
     {
-      "id": "game6",
+      "id": 6,
       "title": "The Photo Of God",
-      "smallDescription": "A high-octane cyberpunk racing game with futuristic vehicles, gravity-defying tracks, and competitive multiplayer.",
+      "devSlug": "mystic-games",
+      "gameSlug": "the-photo-of-god",
+      "developer": "Mystic Games",
+      "smallDescription": "A surreal psychological thriller where photographs hold the key to uncovering cosmic truths.",
       "publishDate": "2025-03-01T00:00:00.000Z",
       "lastUpdate": "2025-03-01T00:00:00.000Z",
       "reviews": {
         "count": 4587,
         "score": 82
       },
-      "tags": ["racing", "action", "arcade", "cyberpunk", "multiplayer"],
+      "tags": ["psychological", "mystery", "story-rich", "surreal", "singleplayer"],
       "pricing": {
         "basePrice": 19.99,
         "discountPercentage": 0,
@@ -173,25 +191,27 @@
         "screenshots": [
           "https://img.itch.zone/aW1hZ2UvMzQ5NTc0MC8yMDg1MDAzMC5wbmc=/794x1000/1vI2a0.png",
           "https://img.itch.zone/aW1hZ2UvMzQ5NTc0MC8yMDg1MDAyNy5wbmc=/794x1000/C7n%2BcA.png",
-          "https://img.itch.zone/aW1hZ2UvMzQ5NTc0MC8yMDg1MDAyMy5wbmc=/794x1000/K1Z1Je.png",
-          "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://img.itch.zone/aW1hZ2UvMzQ5NTc0MC8yMDg1MDAyMy5wbmc=/794x1000/K1Z1Je.png"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac"],
-      "features": ["Race tracks", "Vehicle customization", "Multiplayer races", "Leaderboards"]
+      "features": ["Nonlinear storytelling", "Photography mechanics", "Multiple endings", "Environmental storytelling"]
     },
     {
-      "id": "game7",
+      "id": 7,
       "title": "A Lakeside Walk in the Dolomites",
-      "smallDescription": "Explore an endless procedurally generated universe filled with unique planets, alien species, and interstellar mysteries.",
+      "devSlug": "peaceful-games",
+      "gameSlug": "lakeside-walk-dolomites",
+      "developer": "Peaceful Games",
+      "smallDescription": "Take a peaceful walk through the stunning Dolomites in this meditative exploration game.",
       "publishDate": "2025-02-15T00:00:00.000Z",
       "lastUpdate": "2025-02-15T00:00:00.000Z",
       "reviews": {
         "count": 6123,
         "score": 87
       },
-      "tags": ["space", "exploration", "adventure", "sci-fi", "open-world", "singleplayer"],
+      "tags": ["walking-simulator", "relaxing", "exploration", "nature", "singleplayer"],
       "pricing": {
         "basePrice": 34.99,
         "discountPercentage": 0,
@@ -206,22 +226,25 @@
           "https://img.itch.zone/aW1hZ2UvMzQxMDA2My8yMDU0MzA4OS5qcGc=/794x1000/%2FGogyQ.jpg",
           "https://img.itch.zone/aW1hZ2UvMzQxMDA2My8yMDU0MzA4Ny5qcGc=/794x1000/sFud%2Fs.jpg"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac"],
-      "features": ["Procedural universe", "Ship customization", "Trading", "Alien species"]
+      "features": ["Dynamic weather", "Photo mode", "Ambient soundtrack", "Day-night cycle"]
     },
     {
-      "id": "game8",
+      "id": 8,
       "title": "Bloodbark",
-      "smallDescription": "Command a squad of elite agents with unique abilities in this tactical stealth game set in a dark medieval world.",
+      "devSlug": "dark-forest-games",
+      "gameSlug": "bloodbark",
+      "developer": "Dark Forest Games",
+      "smallDescription": "A dark fantasy metroidvania where nature itself has become corrupted and hostile.",
       "publishDate": "2025-02-05T00:00:00.000Z",
       "lastUpdate": "2025-02-05T00:00:00.000Z",
       "reviews": {
         "count": 4521,
         "score": 89
       },
-      "tags": ["strategy", "stealth", "turn-based", "tactical", "singleplayer"],
+      "tags": ["metroidvania", "dark-fantasy", "action", "pixel-art", "singleplayer"],
       "pricing": {
         "basePrice": 29.99,
         "discountPercentage": 25,
@@ -236,14 +259,17 @@
           "https://img.itch.zone/aW1hZ2UvMzQzNTA5Ni8yMDU4MDcyMS5wbmc=/794x1000/EMZY04.png",
           "https://img.itch.zone/aW1hZ2UvMzQzNTA5Ni8yMDU4MDcyNS5wbmc=/794x1000/CuKrTW.png"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "linux"],
-      "features": ["Tactical combat", "Unique character abilities", "Mission-based campaign", "Challenge modes"]
+      "features": ["Skill tree", "Boss battles", "Hand-drawn art", "Original soundtrack"]
     },
     {
-      "id": "game9",
+      "id": 9,
       "title": "Crystal Kingdoms",
+      "devSlug": "crystal-games",
+      "gameSlug": "crystal-kingdoms",
+      "developer": "Crystal Games",
       "smallDescription": "Embark on an epic fantasy journey through magical realms where your choices shape the fate of the world.",
       "publishDate": "2025-01-25T00:00:00.000Z",
       "lastUpdate": "2025-01-25T00:00:00.000Z",
@@ -258,22 +284,25 @@
         "currentPrice": 39.99
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/1429567/pexels-photo-1429567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/3214944/pexels-photo-3214944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://images.pexels.com/photos/1429567/pexels-photo-1429567.jpeg",
+        "banner": "https://images.pexels.com/photos/3214944/pexels-photo-3214944.jpeg",
         "screenshots": [
-          "https://images.pexels.com/photos/1429567/pexels-photo-1429567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/3214944/pexels-photo-3214944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/4094261/pexels-photo-4094261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/4666754/pexels-photo-4666754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://images.pexels.com/photos/1429567/pexels-photo-1429567.jpeg",
+          "https://images.pexels.com/photos/3214944/pexels-photo-3214944.jpeg",
+          "https://images.pexels.com/photos/4094261/pexels-photo-4094261.jpeg",
+          "https://images.pexels.com/photos/4666754/pexels-photo-4666754.jpeg"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac"],
       "features": ["Magic system", "Quest-driven storyline", "Dynamic world", "Epic boss battles"]
     },
     {
-      "id": "game10",
+      "id": 10,
       "title": "Urban Brawlers",
+      "devSlug": "street-games",
+      "gameSlug": "urban-brawlers",
+      "developer": "Street Games",
       "smallDescription": "Master unique fighting styles and compete in tournaments in this competitive esports-ready fighting game.",
       "publishDate": "2025-01-15T00:00:00.000Z",
       "lastUpdate": "2025-01-15T00:00:00.000Z",
@@ -288,22 +317,25 @@
         "currentPrice": 19.99
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/687811/pexels-photo-687811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/4348093/pexels-photo-4348093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://images.pexels.com/photos/687811/pexels-photo-687811.jpeg",
+        "banner": "https://images.pexels.com/photos/4348093/pexels-photo-4348093.jpeg",
         "screenshots": [
-          "https://images.pexels.com/photos/687811/pexels-photo-687811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/4348093/pexels-photo-4348093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/4348194/pexels-photo-4348194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/4197491/pexels-photo-4197491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://images.pexels.com/photos/687811/pexels-photo-687811.jpeg",
+          "https://images.pexels.com/photos/4348093/pexels-photo-4348093.jpeg",
+          "https://images.pexels.com/photos/4348194/pexels-photo-4348194.jpeg",
+          "https://images.pexels.com/photos/4197491/pexels-photo-4197491.jpeg"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows"],
       "features": ["Multiple fighting styles", "Tournament mode", "Character customization", "Cross-platform play"]
     },
     {
-      "id": "game11",
+      "id": 11,
       "title": "Echo Valley",
+      "devSlug": "peaceful-games",
+      "gameSlug": "echo-valley",
+      "developer": "Peaceful Games",
       "smallDescription": "Build your dream farm, raise animals, and connect with the local community in this relaxing life simulation game.",
       "publishDate": "2025-01-05T00:00:00.000Z",
       "lastUpdate": "2025-01-05T00:00:00.000Z",
@@ -318,22 +350,25 @@
         "currentPrice": 22.49
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-pasture-blue-158179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/248195/pexels-photo-248195.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-pasture-blue-158179.jpeg",
+        "banner": "https://images.pexels.com/photos/248195/pexels-photo-248195.jpeg",
         "screenshots": [
-          "https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-pasture-blue-158179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/248195/pexels-photo-248195.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/2816903/pexels-photo-2816903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-pasture-blue-158179.jpeg",
+          "https://images.pexels.com/photos/248195/pexels-photo-248195.jpeg",
+          "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg",
+          "https://images.pexels.com/photos/2816903/pexels-photo-2816903.jpeg"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac", "linux"],
       "features": ["Farming", "Animal husbandry", "Town relationships", "Seasonal events"]
     },
     {
-      "id": "game12",
+      "id": 12,
       "title": "Spectral Investigations",
+      "devSlug": "ghost-games",
+      "gameSlug": "spectral-investigations",
+      "developer": "Ghost Games",
       "smallDescription": "Join a team of paranormal investigators and solve haunting mysteries using your psychic abilities and ghost-hunting tools.",
       "publishDate": "2024-12-15T00:00:00.000Z",
       "lastUpdate": "2024-12-15T00:00:00.000Z",
@@ -348,15 +383,15 @@
         "currentPrice": 24.99
       },
       "media": {
-        "thumbnail": "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "banner": "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "thumbnail": "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg",
+        "banner": "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg",
         "screenshots": [
-          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg",
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg",
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg",
+          "https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg"
         ],
-        "videos": ["video1.mp4", "video2.mp4"]
+        "videos": []
       },
       "platforms": ["windows", "mac"],
       "features": ["Co-op gameplay", "Procedural hauntings", "Ghost hunting tools", "Investigation mechanics"]

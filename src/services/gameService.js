@@ -46,6 +46,19 @@ export const searchGames = (query) => {
 }
 
 /**
+ * Get game by developer and game slugs
+ * @param {string} devSlug - Developer slug
+ * @param {string} gameSlug - Game slug
+ * @returns {Object|null} - Game object or null if not found
+ */
+export const getGameBySlug = (devSlug, gameSlug) => {
+  return games.find(game => 
+    game.devSlug === devSlug && 
+    game.gameSlug === gameSlug
+  ) || null
+}
+
+/**
  * Get games by specified tags
  * @param {Array} tags - Array of tag strings to search for
  * @returns {Array} - Matching games
@@ -69,10 +82,6 @@ export const getGamesByCategory = (category) => {
   if (!category) {
     return []
   }
-  
-  // Match category to corresponding tags
-  // This is a simplified implementation
-  // A real implementation would likely have a more complex mapping
   
   switch (category.toLowerCase()) {
     case 'action':

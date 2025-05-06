@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { FaWindows, FaApple, FaLinux, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
@@ -122,7 +123,8 @@ const FeaturedCarousel = ({ games, onGameSelect, onGameHover }) => {
         
         <div className="w-full h-[360px] bg-gray-800 rounded-lg overflow-hidden relative">
           {/* Game Container */}
-          <div 
+          <Link 
+            to={`/games/${currentGame.devSlug}/${currentGame.gameSlug}`}
             className="absolute inset-0"
             onMouseEnter={() => {
               console.log("FeaturedCarousel: MouseEnter - Pausing and Hovering")
@@ -202,7 +204,7 @@ const FeaturedCarousel = ({ games, onGameSelect, onGameHover }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* Navigation Controls */}
