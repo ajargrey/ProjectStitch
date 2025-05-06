@@ -104,21 +104,21 @@ const GameList = ({ gameCollections, onGameSelect }) => {
                 onGameSelect(null);
               }}
             >
-              {/* Column 1: Thumbnail */}
-              <div className="w-32 h-20 flex-shrink-0 bg-black/20 rounded overflow-hidden relative">
-                {/* Blurred Background */}
+              {/* Column 1: Banner */}
+              <div className="w-64 h-20 flex-shrink-0 bg-black/20 rounded overflow-hidden relative">
+                {/* Blurred Background - Use Banner */}
                 <img 
-                  src={game.media.thumbnail}
+                  src={game.media.banner}
                   alt=""
                   aria-hidden="true"
                   className="absolute inset-0 w-full h-full object-cover blur-sm scale-110 opacity-50"
                 />
                 <div className="absolute inset-0 bg-black/30" />
-                {/* Actual Thumbnail */}
+                {/* Actual Banner */}
                 <img 
-                  src={game.media.thumbnail} 
-                  alt={`${game.title} thumbnail`}
-                  className="relative w-full h-full object-contain z-10"
+                  src={game.media.banner}
+                  alt={`${game.title} banner`}
+                  className="relative w-full h-full object-cover z-10"
                 />
               </div>
 
