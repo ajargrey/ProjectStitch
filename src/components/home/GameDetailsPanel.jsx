@@ -4,6 +4,8 @@ import { formatPrice } from '../../utils/formatters'
 
 const GameDetailsPanel = ({ game }) => {
   const panelRef = useRef(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const timerRef = useRef(null)
 
   useEffect(() => {
     if (panelRef.current) {
@@ -11,14 +13,65 @@ const GameDetailsPanel = ({ game }) => {
     }
   }, [game])
 
+  useEffect(() => {
+    if (!game) return
+
+    // Reset slideshow when game changes
+    setCurrentSlide(0)
+    
+    // Get all media items (thumbnail + screenshots)
+    const allMedia = [game.media.thumbnail, ...game.media.screenshots]
+    
+    // Clear any existing timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+    }
+
+    // Set up slideshow timer
+    timerRef.current = setInterval(() => {
+      setCurrentSlide(prev => {
+        const next = prev + 1
+        return next >= allMedia.length ? 0 : next
+      })
+    }, 1000)
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+      }
+    }
+  }, [game])
+
   if (!game) return null
+  
+  const allMedia = [game.media.thumbnail, ...game.media.screenshots]
+  const currentImage = allMedia[currentSlide]
   
   return (
     <div ref={panelRef} className="h-full overflow-y-auto bg-gray-900 w-[320px]">
       <div className="space-y-4 w-full">
-        {/* Game Title and Reviews */}
+        {/* Game Title */}
         <div className="px-6 pt-4">
           <h2 className="text-2xl font-heading font-bold mb-2">{game.title}</h2>
+        </div>
+
+        {/* Slideshow */}
+        <div className="px-6">
+          <div 
+            className="relative w-full bg-gray-800 rounded-lg overflow-hidden aspect-[16/9]"
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <img 
+                src={currentImage}
+                alt={game.title}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Reviews */}
+        <div className="px-6">
           <div className="flex items-center space-x-2">
             <span 
               className={`text-sm font-medium ${
@@ -42,49 +95,8 @@ const GameDetailsPanel = ({ game }) => {
           </div>
         </div>
 
-        {/* Main Image */}
-        <div className="px-6">
-          <div className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
-            <div className="flex items-center justify-center">
-              <img 
-                src={game.media.thumbnail}
-                alt={game.title}
-                className="w-full h-auto object-contain max-h-[300px]"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Platforms and Price */}
-        <div className="px-6 space-y-4">
-          <div className="flex items-center space-x-3">
-            {game.platforms.includes('windows') && <FaWindows className="text-gray-300 text-lg" />}
-            {game.platforms.includes('mac') && <FaApple className="text-gray-300 text-lg" />}
-            {game.platforms.includes('linux') && <FaLinux className="text-gray-300 text-lg" />}
-          </div>
-
-          <div className="flex items-center space-x-2">
-            {game.pricing.discountPercentage > 0 && (
-              <span className="bg-green-600 text-white px-2 py-0.5 rounded text-sm font-bold">
-                -{game.pricing.discountPercentage}%
-              </span>
-            )}
-            {game.pricing.basePrice !== game.pricing.currentPrice && (
-              <span className="text-gray-400 line-through">
-                {formatPrice(game.pricing.basePrice)}
-              </span>
-            )}
-            <span className="text-xl font-bold">
-              {game.pricing.currentPrice === 0 
-                ? 'Free to Play' 
-                : formatPrice(game.pricing.currentPrice)}
-            </span>
-          </div>
-        </div>
-
         {/* Tags */}
         <div className="px-6">
-          <h3 className="font-medium mb-2">Popular Tags</h3>
           <div className="flex flex-wrap gap-2">
             {game.tags.map(tag => (
               <span 
@@ -94,6 +106,19 @@ const GameDetailsPanel = ({ game }) => {
                 {tag}
               </span>
             ))}
+          </div>
+        </div>
+
+        {/* Main Thumbnail */}
+        <div className="px-6">
+          <div className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
+            <div className="flex items-center justify-center">
+              <img 
+                src={game.media.thumbnail}
+                alt={game.title}
+                className="w-full h-auto object-contain max-h-[300px]"
+              />
+            </div>
           </div>
         </div>
 
