@@ -6,6 +6,7 @@ const GameDetailsPanel = ({ game }) => {
   const panelRef = useRef(null)
   const [currentSlide, setCurrentSlide] = useState(0)
   const timerRef = useRef(null)
+  const [isGifPlaying, setIsGifPlaying] = useState(false)
 
   useEffect(() => {
     if (panelRef.current) {
@@ -18,6 +19,7 @@ const GameDetailsPanel = ({ game }) => {
 
     // Reset slideshow when game changes
     setCurrentSlide(0)
+    setIsGifPlaying(false)
     
     // Get all media items (thumbnail + screenshots)
     const allMedia = [game.media.thumbnail, ...game.media.screenshots]
@@ -25,22 +27,84 @@ const GameDetailsPanel = ({ game }) => {
     // Clear any existing timer
     if (timerRef.current) {
       clearInterval(timerRef.current)
+      clearTimeout(timerRef.current)
     }
 
-    // Set up slideshow timer
-    timerRef.current = setInterval(() => {
-      setCurrentSlide(prev => {
-        const next = prev + 1
-        return next >= allMedia.length ? 0 : next
-      })
-    }, 1000)
+    const startSlideshow = () => {
+      // Check if current media is a GIF
+      const currentMedia = allMedia[currentSlide]
+      const isGif = currentMedia.toLowerCase().endsWith('.gif')
+      
+      if (isGif) {
+        setIsGifPlaying(true)
+        // For GIFs, we'll wait for the GIF to complete before moving to next slide
+        timerRef.current = setTimeout(() => {
+          setIsGifPlaying(false)
+          setCurrentSlide(prev => {
+            const next = prev + 1
+            return next >= allMedia.length ? 0 : next
+          })
+        }, 5000) // Assuming GIFs take around 5 seconds to play
+      } else {
+        // For non-GIFs, use the regular 1-second interval
+        timerRef.current = setInterval(() => {
+          setCurrentSlide(prev => {
+            const next = prev + 1
+            return next >= allMedia.length ? 0 : next
+          })
+        }, 1000)
+      }
+    }
+
+    startSlideshow()
 
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current)
+        clearTimeout(timerRef.current)
       }
     }
   }, [game])
+
+  // Separate effect to handle slide changes
+  useEffect(() => {
+    if (!game) return
+
+    const allMedia = [game.media.thumbnail, ...game.media.screenshots]
+    const currentMedia = allMedia[currentSlide]
+    const isGif = currentMedia.toLowerCase().endsWith('.gif')
+
+    // Clear any existing timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+      clearTimeout(timerRef.current)
+    }
+
+    if (isGif) {
+      setIsGifPlaying(true)
+      timerRef.current = setTimeout(() => {
+        setIsGifPlaying(false)
+        setCurrentSlide(prev => {
+          const next = prev + 1
+          return next >= allMedia.length ? 0 : next
+        })
+      }, 5000)
+    } else {
+      timerRef.current = setInterval(() => {
+        setCurrentSlide(prev => {
+          const next = prev + 1
+          return next >= allMedia.length ? 0 : next
+        })
+      }, 1000)
+    }
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+        clearTimeout(timerRef.current)
+      }
+    }
+  }, [currentSlide, game])
 
   if (!game) return null
   
