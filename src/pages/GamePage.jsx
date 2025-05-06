@@ -64,9 +64,9 @@ const GamePage = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent z-20" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr,1fr] gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.5fr,0.9375fr] gap-8">
         {/* Left Column */}
-        <div>
+        <div className="min-w-0">
           {/* Media Showcase */}
           <div className="bg-gray-800 rounded-lg overflow-hidden">
             {/* Main Media Display */}
@@ -100,40 +100,57 @@ const GamePage = () => {
             </div>
 
             {/* Thumbnails */}
-            <div className="p-4 overflow-x-auto">
-              <div className="flex space-x-2">
-                {allMedia.map((media, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      setCurrentMediaIndex(idx)
-                      setIsPlaying(false)
-                    }}
-                    className={`flex-shrink-0 w-24 aspect-video rounded-md overflow-hidden ${
-                      currentMediaIndex === idx ? 'ring-2 ring-primary-500' : ''
-                    }`}
-                  >
-                    {isVideo(media) ? (
-                      <video
-                        src={media}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <img 
-                        src={media}
-                        alt={`${game.title} thumbnail ${idx + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    )}
-                  </button>
-                ))}
+            <div className="p-4">
+              <div className="overflow-x-auto pb-2">
+                <div className="flex space-x-3 min-w-max">
+                  {allMedia.map((media, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        setCurrentMediaIndex(idx)
+                        setIsPlaying(false)
+                      }}
+                      className={`flex-shrink-0 w-36 aspect-video rounded-md overflow-hidden ${
+                        currentMediaIndex === idx ? 'ring-2 ring-primary-500' : ''
+                      }`}
+                    >
+                      {isVideo(media) ? (
+                        <video
+                          src={media}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <img 
+                          src={media}
+                          alt={`${game.title} thumbnail ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Itch.io Embed - Moved from right column */}
+          <div className="bg-gray-800 rounded-lg p-6 mt-6">
+            <iframe 
+              title={`${game.title} on itch.io`}
+              frameBorder="0" 
+              src={`https://itch.io/embed/${game.id}`}
+              width="100%" 
+              height="167"
+            >
+              <a href={`https://itch.io/game/${game.id}`}>
+                {game.title} by {game.developer}
+              </a>
+            </iframe>
           </div>
         </div>
 
         {/* Right Column */}
-        <div className="space-y-6">
+        <div className="space-y-6 min-w-0">
           {/* Game Info */}
           <div className="bg-gray-800 rounded-lg p-6">
             <div className="relative aspect-video rounded-lg overflow-hidden mb-4">
@@ -220,20 +237,7 @@ const GamePage = () => {
             </div>
           </div>
 
-          {/* Itch.io Embed */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <iframe 
-              title={`${game.title} on itch.io`}
-              frameBorder="0" 
-              src={`https://itch.io/embed/${game.id}`}
-              width="100%" 
-              height="167"
-            >
-              <a href={`https://itch.io/game/${game.id}`}>
-                {game.title} by {game.developer}
-              </a>
-            </iframe>
-          </div>
+          {/* Removed itch.io embed from here and moved to left column */}
         </div>
       </div>
     </div>
