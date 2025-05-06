@@ -39,37 +39,64 @@ const GamePage = () => {
   const currentMedia = allMedia[currentMediaIndex]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       {/* Game Banner */}
-      <div className="w-full h-[300px] relative mb-8">
-        <img 
-          src={game.media.banner}
-          alt={game.title}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+      <div className="w-full h-[300px] relative mb-8 bg-gray-900 overflow-hidden">
+        {/* Blurred background */}
+        <div className="absolute inset-0">
+          <img 
+            src={game.media.banner}
+            alt=""
+            className="w-full h-full object-cover blur-md scale-110 opacity-50"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        
+        {/* Main banner image - contained for aspect ratio */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img 
+            src={game.media.banner}
+            alt={game.title}
+            className="max-w-full max-h-full w-auto h-auto object-contain z-10"
+          />
+        </div>
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent z-20" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr,1fr] gap-8">
         {/* Left Column */}
         <div>
           {/* Media Showcase */}
           <div className="bg-gray-800 rounded-lg overflow-hidden">
             {/* Main Media Display */}
-            <div className="relative aspect-video">
-              {isVideo(currentMedia) ? (
-                <video
-                  src={currentMedia}
-                  controls
-                  className="w-full h-full object-contain bg-black"
-                />
-              ) : (
+            <div className="relative aspect-video bg-gray-900">
+              {/* Blurred background for empty space */}
+              <div className="absolute inset-0 overflow-hidden">
                 <img 
                   src={currentMedia}
-                  alt={`${game.title} media`}
-                  className="w-full h-full object-contain bg-black"
+                  alt=""
+                  className="w-full h-full object-cover blur-md scale-110 opacity-50"
                 />
-              )}
+                <div className="absolute inset-0 bg-black/40" />
+              </div>
+              
+              {/* Main content with original aspect ratio */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                {isVideo(currentMedia) ? (
+                  <video
+                    src={currentMedia}
+                    controls
+                    className="max-w-full max-h-full w-auto h-auto object-contain z-10"
+                  />
+                ) : (
+                  <img 
+                    src={currentMedia}
+                    alt={`${game.title} media`}
+                    className="max-w-full max-h-full w-auto h-auto object-contain z-10"
+                  />
+                )}
+              </div>
             </div>
 
             {/* Thumbnails */}
@@ -109,11 +136,26 @@ const GamePage = () => {
         <div className="space-y-6">
           {/* Game Info */}
           <div className="bg-gray-800 rounded-lg p-6">
-            <img 
-              src={game.media.thumbnail}
-              alt={game.title}
-              className="w-full aspect-video object-cover rounded-lg mb-4"
-            />
+            <div className="relative aspect-video rounded-lg overflow-hidden mb-4">
+              {/* Blurred background */}
+              <div className="absolute inset-0">
+                <img 
+                  src={game.media.thumbnail}
+                  alt=""
+                  className="w-full h-full object-cover blur-md scale-110 opacity-70"
+                />
+                <div className="absolute inset-0 bg-black/30" />
+              </div>
+              
+              {/* Main thumbnail with preserved aspect ratio */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <img 
+                  src={game.media.thumbnail}
+                  alt={game.title}
+                  className="max-w-full max-h-full w-auto h-auto object-contain z-10"
+                />
+              </div>
+            </div>
             
             <h1 className="text-2xl font-bold mb-2">{game.title}</h1>
             <p className="text-gray-300 mb-4">{game.smallDescription}</p>
