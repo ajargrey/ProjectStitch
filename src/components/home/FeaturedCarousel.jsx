@@ -46,10 +46,6 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
     }
   }, [isPaused])
 
-  useEffect(() => {
-    onGameSelect(games[currentIndex])
-  }, [currentIndex, games, onGameSelect])
-
   const currentGame = games[currentIndex]
 
   return (

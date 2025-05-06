@@ -1,12 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { FaWindows, FaApple, FaLinux } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
 const GameDetailsPanel = ({ game }) => {
+  const panelRef = useRef(null)
+
+  useEffect(() => {
+    if (panelRef.current) {
+      panelRef.current.scrollTop = 0
+    }
+  }, [game])
+
   if (!game) return null
   
   return (
-    <div className="h-full overflow-y-auto bg-gray-900 w-[320px]">
+    <div ref={panelRef} className="h-full overflow-y-auto bg-gray-900 w-[320px]">
       <div className="space-y-4 w-full">
         {/* Game Title and Reviews */}
         <div className="px-6 pt-4">
