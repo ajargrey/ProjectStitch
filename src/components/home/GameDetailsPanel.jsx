@@ -3,8 +3,6 @@ import { FaWindows, FaApple, FaLinux } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
 const GameDetailsPanel = ({ game }) => {
-  const [selectedImage, setSelectedImage] = useState(null)
-  
   if (!game) return null
   
   return (
@@ -41,7 +39,7 @@ const GameDetailsPanel = ({ game }) => {
           <div className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
             <div className="flex items-center justify-center">
               <img 
-                src={selectedImage || game.media.thumbnail}
+                src={game.media.thumbnail}
                 alt={game.title}
                 className="w-full h-auto object-contain max-h-[300px]"
               />
@@ -53,14 +51,12 @@ const GameDetailsPanel = ({ game }) => {
         <div className="px-6">
           <div className="grid grid-cols-1 gap-2">
             {game.media.screenshots.map((screenshot, idx) => (
-              <div key={idx} className="relative w-full bg-gray-800">
+              <div key={idx} className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
                 <div className="flex items-center justify-center">
                   <img 
                     src={screenshot}
                     alt={`${game.title} screenshot ${idx + 1}`}
-                    className="w-full h-auto object-contain max-h-[200px] cursor-pointer hover:opacity-80 transition-opacity"
-                    onMouseEnter={() => setSelectedImage(screenshot)}
-                    onMouseLeave={() => setSelectedImage(null)}
+                    className="w-full h-auto object-contain max-h-[200px]"
                   />
                 </div>
               </div>
