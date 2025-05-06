@@ -55,40 +55,8 @@ const GameDetailsPanel = ({ game }) => {
           </div>
         </div>
 
-        {/* Media Grid */}
-        <div className="px-6">
-          <div className="grid grid-cols-1 gap-2">
-            {game.media.screenshots.map((screenshot, idx) => (
-              <div key={idx} className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
-                <div className="flex items-center justify-center">
-                  <img 
-                    src={screenshot}
-                    alt={`${game.title} screenshot ${idx + 1}`}
-                    className="w-full h-auto object-contain max-h-[200px]"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Tags */}
-        <div className="px-6">
-          <h3 className="font-medium mb-2">Popular Tags</h3>
-          <div className="flex flex-wrap gap-2">
-            {game.tags.map(tag => (
-              <span 
-                key={tag}
-                className="px-2 py-1 bg-gray-700 rounded-md text-sm text-gray-300 hover:bg-gray-600 cursor-pointer"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
         {/* Platforms and Price */}
-        <div className="px-6 pb-6 space-y-4">
+        <div className="px-6 space-y-4">
           <div className="flex items-center space-x-3">
             {game.platforms.includes('windows') && <FaWindows className="text-gray-300 text-lg" />}
             {game.platforms.includes('mac') && <FaApple className="text-gray-300 text-lg" />}
@@ -111,6 +79,38 @@ const GameDetailsPanel = ({ game }) => {
                 ? 'Free to Play' 
                 : formatPrice(game.pricing.currentPrice)}
             </span>
+          </div>
+        </div>
+
+        {/* Tags */}
+        <div className="px-6">
+          <h3 className="font-medium mb-2">Popular Tags</h3>
+          <div className="flex flex-wrap gap-2">
+            {game.tags.map(tag => (
+              <span 
+                key={tag}
+                className="px-2 py-1 bg-gray-700 rounded-md text-sm text-gray-300 hover:bg-gray-600 cursor-pointer"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Media Grid */}
+        <div className="px-6">
+          <div className="grid grid-cols-1 gap-2">
+            {game.media.screenshots.map((screenshot, idx) => (
+              <div key={idx} className="relative w-full bg-gray-800 rounded-lg overflow-hidden">
+                <div className="flex items-center justify-center">
+                  <img 
+                    src={screenshot}
+                    alt={`${game.title} screenshot ${idx + 1}`}
+                    className="w-full h-auto object-contain max-h-[200px]"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
