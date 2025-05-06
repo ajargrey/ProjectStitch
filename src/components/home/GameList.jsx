@@ -1,17 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const GameList = ({ gameCollections, onGameSelect }) => {
   const [activeTab, setActiveTab] = useState('newAndTrending')
-  const [hoveredGame, setHoveredGame] = useState(null)
+  const [hoveredGameId, setHoveredGameId] = useState(null)
+  const initialLoadRef = useRef(true)
   
-  // Set first game as default hovered game when tab changes or component mounts
+  // Effect to reset internal hover state when tab changes
   useEffect(() => {
-    const activeGames = getActiveGames()
-    if (activeGames.length > 0) {
-      setHoveredGame(activeGames[0].id)
-      onGameSelect(activeGames[0])
+    // Skip effect on initial mount
+    if (initialLoadRef.current) {
+      console.log("GameList: Initial mount - Skipping effect.")
+      initialLoadRef.current = false;
+      return;
     }
-  }, [activeTab])
+    
+    console.log(`GameList: Active tab changed to ${activeTab}. Resetting internal hover state.`);
+    setHoveredGameId(null) // Reset internal hover highlight when tab changes
+    // DO NOT call onGameSelect here - this caused the bug
+
+  }, [activeTab]); // Only run when activeTab changes
 
   const getActiveGames = () => {
     switch (activeTab) {
@@ -68,11 +75,17 @@ const GameList = ({ gameCollections, onGameSelect }) => {
           <div 
             key={game.id}
             className={`flex items-center p-4 hover:bg-gray-500 transition-colors border-b border-gray-700 last:border-b-0 cursor-pointer ${
-              hoveredGame === game.id ? 'bg-gray-500' : ''
+              hoveredGameId === game.id ? 'bg-gray-500' : ''
             }`}
             onMouseEnter={() => {
-              setHoveredGame(game.id)
-              onGameSelect(game)
+              console.log(`GameList: MouseEnter game: ${game.title} (${game.id})`);
+              setHoveredGameId(game.id);
+              onGameSelect(game);
+            }}
+            onMouseLeave={() => {
+              console.log(`GameList: MouseLeave game: ${game.title} (${game.id})`);
+              setHoveredGameId(null);
+              onGameSelect(null);
             }}
           >
             <div className="flex-1">

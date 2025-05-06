@@ -7,46 +7,113 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
   const [isPaused, setIsPaused] = useState(false)
   const intervalRef = useRef(null)
   const timeoutRef = useRef(null)
+  const isInitialMount = useRef(true)
+  const currentIndexRef = useRef(currentIndex)
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % games.length)
+  useEffect(() => {
+    currentIndexRef.current = currentIndex
+    console.log(`FeaturedCarousel: currentIndex state updated to ${currentIndex}`)
+  }, [currentIndex])
+
+  const changeSlideIndex = (newIndex) => {
+    console.log(`FeaturedCarousel: Attempting to change slide index to ${newIndex} (${games[newIndex]?.title})`)
+    setCurrentIndex(newIndex)
   }
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => prevIndex === 0 ? games.length - 1 : prevIndex - 1)
-  }
-
-  const goToSlide = (index) => {
-    setCurrentIndex(index)
-  }
-
-  const handleManualNav = (direction) => {
-    if (direction === 'next') {
-      nextSlide()
+  const triggerSelectionUpdate = (index) => {
+    if (games[index]) {
+      console.log(`FeaturedCarousel: Triggering onGameSelect for index ${index} (${games[index].title})`)
+      onGameSelect(games[index])
     } else {
-      prevSlide()
+      console.error(`FeaturedCarousel: Attempted to trigger selection for invalid index ${index}`)
     }
-    
+  }
+
+  const clearAllTimers = () => {
     clearInterval(intervalRef.current)
     clearTimeout(timeoutRef.current)
+    intervalRef.current = null
+    timeoutRef.current = null
+    console.log("FeaturedCarousel: Cleared all timers.")
+  }
+
+  const startAutoAdvanceInterval = (delay = 5000) => {
+    clearAllTimers()
+    console.log(`FeaturedCarousel: Starting auto-advance interval (${delay / 1000}s)`)
+    intervalRef.current = setInterval(() => {
+      console.log("FeaturedCarousel: Auto-advance tick")
+      const newSlideIndex = (currentIndexRef.current + 1) % games.length
+      changeSlideIndex(newSlideIndex)
+    }, delay)
+  }
+
+  const handleManualNavigation = (directionOrIndex) => {
+    console.log(`FeaturedCarousel: handleManualNavigation - ${typeof directionOrIndex === 'string' ? directionOrIndex : `index ${directionOrIndex}`}`)
+    clearAllTimers()
+
+    let newSlideIndex
+    if (typeof directionOrIndex === 'string') {
+      if (directionOrIndex === 'next') {
+        newSlideIndex = (currentIndex + 1) % games.length
+      } else {
+        newSlideIndex = currentIndex === 0 ? games.length - 1 : currentIndex - 1
+      }
+    } else {
+      newSlideIndex = directionOrIndex
+    }
+
+    if (newSlideIndex === currentIndex) {
+      console.log("FeaturedCarousel: Manual navigation to current index, no change needed.")
+      triggerSelectionUpdate(newSlideIndex)
+    } else {
+      changeSlideIndex(newSlideIndex)
+      triggerSelectionUpdate(newSlideIndex)
+    }
     
+    console.log("FeaturedCarousel: Setting timeout to restart auto-advance (15s) after manual navigation")
     timeoutRef.current = setTimeout(() => {
-      intervalRef.current = setInterval(nextSlide, 5000)
+      if (!isPaused) {
+        console.log("FeaturedCarousel: Timeout expired, resuming auto-advance.")
+        startAutoAdvanceInterval()
+      } else {
+        console.log("FeaturedCarousel: Timeout expired, but carousel is paused. Auto-advance not restarting.")
+      }
     }, 15000)
   }
 
   useEffect(() => {
-    if (!isPaused) {
-      intervalRef.current = setInterval(nextSlide, 5000)
+    if (isInitialMount.current) {
+      return
     }
-    
-    return () => {
-      clearInterval(intervalRef.current)
-      clearTimeout(timeoutRef.current)
+    console.log(`FeaturedCarousel: Pause state changed to: ${isPaused}`)
+    if (isPaused) {
+      console.log("FeaturedCarousel: Paused - Clearing timers.")
+      clearAllTimers()
+    } else {
+      console.log("FeaturedCarousel: Resumed - Restarting auto-advance.")
+      startAutoAdvanceInterval()
     }
   }, [isPaused])
 
+  useEffect(() => {
+    console.log(`FeaturedCarousel: Initial Mount - Selecting index ${currentIndex} (${games[currentIndex]?.title})`)
+    triggerSelectionUpdate(currentIndex)
+
+    startAutoAdvanceInterval()
+    
+    isInitialMount.current = false
+
+    return () => {
+      console.log("FeaturedCarousel: Unmounting - Clearing all timers.")
+      clearAllTimers()
+    }
+  }, [])
+
   const currentGame = games[currentIndex]
+  if (!currentGame) {
+    console.error("FeaturedCarousel: currentGame is undefined!", currentIndex, games)
+    return <div className="w-full bg-gray-900 mb-8 mt-8 text-white p-4">Error: No game data available for carousel.</div>
+  }
 
   return (
     <div className="w-full bg-gray-900 mb-8 mt-8">
@@ -58,10 +125,13 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
           <div 
             className="absolute inset-0"
             onMouseEnter={() => {
+              console.log("FeaturedCarousel: MouseEnter - Pausing")
               setIsPaused(true)
-              onGameSelect(currentGame)
             }}
-            onMouseLeave={() => setIsPaused(false)}
+            onMouseLeave={() => {
+              console.log("FeaturedCarousel: MouseLeave - Resuming")
+              setIsPaused(false)
+            }}
           >
             {/* Blurred Background */}
             <div className="absolute inset-0">
@@ -133,7 +203,7 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
         <div className="flex items-center justify-center mt-4 space-x-4">
           <button 
             className="w-12 h-12 flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/90 rounded-full text-white transition-all duration-200"
-            onClick={() => handleManualNav('prev')}
+            onClick={() => handleManualNavigation('prev')}
             aria-label="Previous slide"
           >
             <FaChevronLeft className="w-5 h-5" />
@@ -144,7 +214,7 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
             {games.map((_, idx) => (
               <button
                 key={idx}
-                onClick={() => goToSlide(idx)}
+                onClick={() => handleManualNavigation(idx)}
                 className={`w-2 h-2 rounded-full transition-all ${
                   idx === currentIndex ? 'bg-white w-4' : 'bg-gray-500'
                 }`}
@@ -155,7 +225,7 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
 
           <button 
             className="w-12 h-12 flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/90 rounded-full text-white transition-all duration-200"
-            onClick={() => handleManualNav('next')}
+            onClick={() => handleManualNavigation('next')}
             aria-label="Next slide"
           >
             <FaChevronRight className="w-5 h-5" />

@@ -3,19 +3,33 @@ import { FaWindows, FaApple, FaLinux } from 'react-icons/fa'
 import { formatPrice } from '../../utils/formatters'
 
 const GameDetailsPanel = ({ game }) => {
+  console.log(`GameDetailsPanel rendering for game: ${game.title} (${game.id})`)
+  
   const panelRef = useRef(null)
   const [currentSlide, setCurrentSlide] = useState(0)
   const timerRef = useRef(null)
   const [isGifPlaying, setIsGifPlaying] = useState(false)
+  const gameIdRef = useRef(game.id)
 
+  // Reset panel position when game changes
   useEffect(() => {
     if (panelRef.current) {
       panelRef.current.scrollTop = 0
     }
+    
+    // Force reset internal state if game changed
+    if (gameIdRef.current !== game.id) {
+      console.log(`GameDetailsPanel: Game changed from ${gameIdRef.current} to ${game.id}`)
+      gameIdRef.current = game.id
+      setCurrentSlide(0)
+      setIsGifPlaying(false)
+    }
   }, [game])
 
+  // Slideshow effect
   useEffect(() => {
     if (!game) return
+    console.log(`GameDetailsPanel: Starting slideshow for ${game.title}`)
 
     // Reset slideshow when game changes
     setCurrentSlide(0)
@@ -59,6 +73,7 @@ const GameDetailsPanel = ({ game }) => {
     startSlideshow()
 
     return () => {
+      console.log(`GameDetailsPanel: Cleaning up slideshow for ${game.title}`)
       if (timerRef.current) {
         clearInterval(timerRef.current)
         clearTimeout(timerRef.current)

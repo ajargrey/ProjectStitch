@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import FeaturedCarousel from '../components/home/FeaturedCarousel'
 import GameList from '../components/home/GameList'
 import GameDetailsPanel from '../components/home/GameDetailsPanel'
@@ -7,14 +7,45 @@ import { gameCollection } from '../data/games'
 const HomePage = () => {
   const [selectedGame, setSelectedGame] = useState(gameCollection.featured[0])
   const [hoveredGame, setHoveredGame] = useState(null)
+  const initialLoadRef = useRef(true)
 
   useEffect(() => {
     document.title = 'Stitch - Discover Indie Games'
-  }, [])
+    console.log('HomePage: Initial game:', selectedGame.title, selectedGame.id)
+    const timer = setTimeout(() => {
+      initialLoadRef.current = false
+      console.log("HomePage: Initial load flag set to false.")
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [selectedGame.id, selectedGame.title])
 
-  const handleGameSelect = (game) => {
-    setHoveredGame(game)
-  }
+  const handleGameSelect = useCallback((game) => {
+    if (initialLoadRef.current) {
+      console.log("HomePage: Skipping handleGameSelect during initial load phase.");
+      return;
+    }
+    console.log('HomePage: handleGameSelect called with:', game ? `${game.title} (${game.id})` : 'null');
+    
+    if (game) {
+      setSelectedGame(game)
+      setHoveredGame(game)
+    } else {
+      console.warn("HomePage: handleGameSelect called with null game. This shouldn't normally happen from carousel.")
+    }
+  }, []);
+
+  const handleGameHover = useCallback((game) => {
+    if (initialLoadRef.current) {
+       console.log("HomePage: Skipping handleGameHover during initial load phase.");
+       return;
+    }
+    console.log('HomePage: handleGameHover called with:', game ? `${game.title} (${game.id})` : 'null');
+    setHoveredGame(game);
+  }, []);
+
+  const gameToDisplay = hoveredGame || selectedGame
+  
+  console.log('HomePage: Game to display:', gameToDisplay.title, gameToDisplay.id);
 
   return (
     <div className="flex justify-center">
@@ -29,7 +60,7 @@ const HomePage = () => {
             
             <GameList 
               gameCollections={gameCollection} 
-              onGameSelect={handleGameSelect}
+              onGameSelect={handleGameHover}
             />
             
             <div className="my-8">
@@ -51,7 +82,10 @@ const HomePage = () => {
 
         <div className="w-[320px] flex-shrink-0">
           <div className="fixed top-[4rem] right-0 w-[320px] h-[calc(100vh-4rem)] bg-gray-800">
-            <GameDetailsPanel game={hoveredGame || selectedGame} />
+            <GameDetailsPanel 
+              key={gameToDisplay.id} 
+              game={gameToDisplay} 
+            />
           </div>
         </div>
       </div>
