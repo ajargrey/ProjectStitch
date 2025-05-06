@@ -54,13 +54,13 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
 
   return (
     <div className="w-full bg-gray-900 mb-8 mt-8">
-      <div className="flex flex-col">
+      <div className="flex flex-col w-[70%]">
         <h2 className="text-2xl font-heading font-bold text-white mb-4">FEATURED &amp; RECOMMENDED</h2>
         
-        <div className="relative">
+        <div className="w-[150%] h-[360px] bg-gray-800 rounded-lg overflow-hidden relative">
           {/* Game Container */}
           <div 
-            className="w-full h-[360px] bg-gray-800 rounded-lg overflow-hidden group relative"
+            className="absolute inset-0"
             onMouseEnter={() => {
               setIsPaused(true)
               onGameSelect(currentGame)
@@ -78,11 +78,11 @@ const FeaturedCarousel = ({ games, onGameSelect }) => {
             </div>
 
             {/* Main Image */}
-            <div className="relative h-full flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center">
               <img 
                 src={currentGame.media.banner}
                 alt={currentGame.title}
-                className="h-full w-auto object-contain"
+                className="max-h-full max-w-full object-contain"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent" />

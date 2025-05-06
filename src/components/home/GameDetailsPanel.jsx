@@ -8,8 +8,8 @@ const GameDetailsPanel = ({ game }) => {
   if (!game) return null
   
   return (
-    <div className="h-[calc(100vh-8rem)] sticky top-[8rem] overflow-y-auto">
-      <div className="space-y-4">
+    <div className="h-[calc(100vh-8rem)] sticky top-[8rem] overflow-y-auto w-[400px] bg-gray-900">
+      <div className="space-y-4 w-full">
         {/* Game Title and Reviews */}
         <div className="px-6 pt-4">
           <h2 className="text-2xl font-heading font-bold mb-2">{game.title}</h2>
@@ -37,23 +37,12 @@ const GameDetailsPanel = ({ game }) => {
         </div>
 
         {/* Main Image */}
-        <div className="relative">
-          {/* Blurred Background */}
-          <div className="absolute inset-0">
-            <img 
-              src={selectedImage || game.media.thumbnail}
-              alt=""
-              className="w-full h-full object-cover blur-xl scale-110"
-            />
-            <div className="absolute inset-0 bg-gray-900/50" />
-          </div>
-
-          {/* Main Image */}
-          <div className="relative aspect-video flex items-center justify-center">
+        <div className="relative w-full bg-gray-800">
+          <div className="flex items-center justify-center">
             <img 
               src={selectedImage || game.media.thumbnail}
               alt={game.title}
-              className="h-full w-auto object-contain"
+              className="w-full h-auto object-contain max-h-[300px]"
             />
           </div>
         </div>
@@ -62,23 +51,12 @@ const GameDetailsPanel = ({ game }) => {
         <div className="px-6">
           <div className="grid grid-cols-1 gap-2">
             {game.media.screenshots.map((screenshot, idx) => (
-              <div key={idx} className="relative">
-                {/* Blurred Background */}
-                <div className="absolute inset-0">
-                  <img 
-                    src={screenshot}
-                    alt=""
-                    className="w-full h-full object-cover blur-xl scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gray-900/50" />
-                </div>
-
-                {/* Main Image */}
-                <div className="relative aspect-video flex items-center justify-center">
+              <div key={idx} className="relative w-full bg-gray-800">
+                <div className="flex items-center justify-center">
                   <img 
                     src={screenshot}
                     alt={`${game.title} screenshot ${idx + 1}`}
-                    className="h-full w-auto object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                    className="w-full h-auto object-contain max-h-[200px] cursor-pointer hover:opacity-80 transition-opacity"
                     onMouseEnter={() => setSelectedImage(screenshot)}
                     onMouseLeave={() => setSelectedImage(null)}
                   />

@@ -17,38 +17,40 @@ const HomePage = () => {
   }
 
   return (
-    <div className="flex">
-      <div className="flex-1 max-w-[1520px] px-4">
-        <div className="max-w-[1080px] mx-auto">
-          <FeaturedCarousel 
-            games={gameCollection.featured} 
-            onGameSelect={handleGameSelect}
-          />
-          
-          <GameList 
-            gameCollections={gameCollection} 
-            onGameSelect={handleGameSelect}
-          />
-          
-          <div className="my-8">
-            <h2 className="text-2xl font-heading font-bold text-white mb-4">SPECIAL OFFERS</h2>
-            <div className="bg-gradient-to-r from-accent-700 to-accent-900 p-6 rounded-lg">
-              <div className="flex flex-col md:flex-row items-center justify-between">
-                <div>
-                  <h3 className="text-2xl font-heading font-bold mb-2">Spring Sale</h3>
-                  <p className="text-lg">Save up to 90% on thousands of indie games!</p>
-                </div>
-                <div className="mt-4 md:mt-0">
-                  <button className="btn btn-primary px-6 py-3">View All Deals</button>
+    <div className="flex justify-center">
+      <div className="flex max-w-[1520px]">
+        <div className="flex-1 px-4">
+          <div className="max-w-[1080px]">
+            <FeaturedCarousel 
+              games={gameCollection.featured} 
+              onGameSelect={handleGameSelect}
+            />
+            
+            <GameList 
+              gameCollections={gameCollection} 
+              onGameSelect={handleGameSelect}
+            />
+            
+            <div className="my-8">
+              <h2 className="text-2xl font-heading font-bold text-white mb-4">SPECIAL OFFERS</h2>
+              <div className="bg-gradient-to-r from-accent-700 to-accent-900 p-6 rounded-lg">
+                <div className="flex flex-col md:flex-row items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-heading font-bold mb-2">Spring Sale</h3>
+                    <p className="text-lg">Save up to 90% on thousands of indie games!</p>
+                  </div>
+                  <div className="mt-4 md:mt-0">
+                    <button className="btn btn-primary px-6 py-3">View All Deals</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="w-[400px] bg-gray-800">
-        <GameDetailsPanel game={hoveredGame || selectedGame} />
+        <div className="bg-gray-800">
+          <GameDetailsPanel game={hoveredGame || selectedGame} />
+        </div>
       </div>
     </div>
   )
