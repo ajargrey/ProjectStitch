@@ -10,6 +10,9 @@ const GamePage = () => {
   const game = getGameBySlug(devSlug, gameSlug)
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
+  const [gameDescription, setGameDescription] = useState(null)
+  const [descriptionLoading, setDescriptionLoading] = useState(true)
+  const [descriptionError, setDescriptionError] = useState(null)
 
   // Combine screenshots and videos into a single media array
   const allMedia = [...game?.media.screenshots || [], ...(game?.media.videos || [])]
@@ -31,6 +34,52 @@ const GamePage = () => {
 
     return () => clearInterval(timer)
   }, [game, navigate, allMedia.length, isPlaying])
+
+  useEffect(() => {
+    if (!game) return
+
+    const fetchGameDescription = async () => {
+      try {
+        setDescriptionLoading(true)
+        setDescriptionError(null)
+        
+        // Construct the itch.io URL
+        const itchUrl = `https://${game.devSlug}.itch.io/${game.gameSlug}`
+        
+        // Use CORS proxy to fetch the page
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(itchUrl)}`
+        
+        const response = await fetch(proxyUrl)
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch page')
+        }
+        
+        const data = await response.json()
+        
+        // Parse the HTML content
+        const parser = new DOMParser()
+        const doc = parser.parseFromString(data.contents, 'text/html')
+        
+        // Find the description element
+        const descriptionElement = doc.querySelector('.formatted_description.user_formatted')
+        
+        if (descriptionElement) {
+          setGameDescription(descriptionElement.innerHTML)
+        } else {
+          setDescriptionError('Description not found on the page')
+        }
+        
+      } catch (error) {
+        console.error('Failed to fetch game description:', error)
+        setDescriptionError('Failed to load description')
+      } finally {
+        setDescriptionLoading(false)
+      }
+    }
+
+    fetchGameDescription()
+  }, [game])
 
   if (!game) return null
 
@@ -147,6 +196,48 @@ const GamePage = () => {
               </a>
             </iframe>
           </div>
+
+          {/* Game Description from itch.io */}
+          <div className="bg-gray-800 rounded-lg p-6 mt-6">
+            <h3 className="text-xl font-semibold mb-4 text-white">About This Game</h3>
+            
+            {descriptionLoading && (
+              <div className="animate-pulse space-y-3">
+                <div className="h-4 bg-gray-700 rounded w-3/4"></div>
+                <div className="h-4 bg-gray-700 rounded w-1/2"></div>
+                <div className="h-4 bg-gray-700 rounded w-5/6"></div>
+                <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+                <div className="h-4 bg-gray-700 rounded w-4/5"></div>
+              </div>
+            )}
+            
+            {descriptionError && (
+              <div className="text-red-400 bg-red-900/20 border border-red-500/30 rounded p-4">
+                <p className="font-medium">⚠️ {descriptionError}</p>
+                <p className="text-sm mt-2 text-red-300">
+                  You can view the full description on{' '}
+                  <a 
+                    href={`https://${game.devSlug}.itch.io/${game.gameSlug}`}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 underline"
+                  >
+                    itch.io
+                  </a>
+                </p>
+              </div>
+            )}
+            
+            {gameDescription && !descriptionLoading && (
+              <div 
+                className="text-gray-200 leading-relaxed itch-description"
+                dangerouslySetInnerHTML={{ __html: gameDescription }}
+                style={{
+                  lineHeight: '1.6'
+                }}
+              />
+            )}
+          </div>
         </div>
 
         {/* Right Column */}
@@ -236,8 +327,6 @@ const GamePage = () => {
               </div>
             </div>
           </div>
-
-          {/* Removed itch.io embed from here and moved to left column */}
         </div>
       </div>
     </div>
